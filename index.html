@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ece8df">
+  <meta name="description" content="MATERAUM — objetos sensoriais para domesticar o invisível. Luz, aroma e som tratados como matéria.">
+  <title>MATERAUM — objetos para domesticar o invisível</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23141412'/%3E%3Cpath d='M19 72V29h12l19 25 19-25h12v43H69V47L50 70 31 47v25z' fill='%23ece8df'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="cursor-echo" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topo" data-topo>
+    <a class="marca" href="#inicio" aria-label="MATERAUM, início">
+      <span class="marca-selo">M1</span>
+      <span>MATERAUM</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Navegação principal">
+      <a href="#objetos">Objetos</a>
+      <a href="#manifesto">Manifesto</a>
+      <a href="#materiais">Matéria</a>
+      <a href="#atelier">Atelier</a>
+    </nav>
+
+    <div class="acoes-topo">
+      <button class="botao-texto" type="button" data-open-cart aria-label="Abrir sacola">
+        Sacola <span data-cart-count>0</span>
+      </button>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="menu-mobile" data-menu-mobile aria-label="Navegação móvel">
+    <a href="#objetos">Objetos</a>
+    <a href="#manifesto">Manifesto</a>
+    <a href="#materiais">Matéria</a>
+    <a href="#atelier">Atelier</a>
+    <p>Feito em pequenas séries.<br>Sem pressa. Sem excesso.</p>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Coleção inaugural · série 001—003</p>
+        <h1>Domesticar<br>o invisível.</h1>
+        <p class="hero-intro">Objetos sensoriais que tratam luz, aroma e som como matéria. Sem telas. Sem notificações. Só presença.</p>
+        <div class="hero-actions">
+          <a class="cta-principal" href="#objetos">Conhecer a coleção <span>↘</span></a>
+          <button class="cta-secundario" type="button" data-sound-demo>Ouvir o Pulso 03</button>
+        </div>
+      </div>
+
+      <div class="hero-object-wrap" data-reveal>
+        <div class="hero-index" aria-hidden="true">01</div>
+        <div class="objeto objeto-brasa" data-tilt data-product-visual="brasa">
+          <div class="brasa-corpo"></div>
+          <div class="brasa-luz"></div>
+          <div class="brasa-fenda"></div>
+          <div class="sombra-objeto"></div>
+        </div>
+        <div class="hero-caption">
+          <span>BRASA 01</span>
+          <span>Luz mineral / 2700K</span>
+        </div>
+      </div>
+
+      <div class="hero-rail" aria-hidden="true">
+        <span>01 LUZ</span>
+        <span>02 AROMA</span>
+        <span>03 SOM</span>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Princípios da marca">
+      <div class="marquee-track">
+        <span>SEM TELA</span><i>●</i><span>SEM NUVEM</span><i>●</i><span>SEM PRESSA</span><i>●</i><span>MATÉRIA REAL</span><i>●</i><span>FEITO PARA DURAR</span><i>●</i>
+        <span>SEM TELA</span><i>●</i><span>SEM NUVEM</span><i>●</i><span>SEM PRESSA</span><i>●</i><span>MATÉRIA REAL</span><i>●</i><span>FEITO PARA DURAR</span><i>●</i>
+      </div>
+    </section>
+
+    <section class="colecao" id="objetos">
+      <div class="colecao-intro" data-reveal>
+        <p class="eyebrow">Três objetos. Três sentidos.</p>
+        <h2>Uma casa muda<br>antes de você perceber.</h2>
+        <p>A coleção M1 não tenta ocupar o ambiente. Ela trabalha no limite da percepção: calor de luz, memória olfativa e vibração física.</p>
+      </div>
+
+      <article class="produto produto-01" data-product="BRASA 01" data-price="1280" data-reveal>
+        <div class="produto-numero">01</div>
+        <div class="produto-visual-shell">
+          <div class="produto-visual palco-brasa" data-tilt>
+            <div class="objeto objeto-brasa mini">
+              <div class="brasa-corpo"></div>
+              <div class="brasa-luz"></div>
+              <div class="brasa-fenda"></div>
+              <div class="sombra-objeto"></div>
+            </div>
+          </div>
+          <span class="microlegenda">Basalto recomposto · alumínio oxidado · luz difusa</span>
+        </div>
+        <div class="produto-info">
+          <div>
+            <p class="produto-tipo">Luz ambiente</p>
+            <h3>BRASA 01</h3>
+          </div>
+          <p class="produto-descricao">Um bloco de matéria escura que guarda luz no interior. Gire o corpo: a fenda abre, a intensidade muda, o ambiente desacelera.</p>
+          <div class="produto-meta">
+            <span>2700K</span><span>6W</span><span>1,8 kg</span><span>USB-C</span>
+          </div>
+          <div class="produto-compra">
+            <strong>R$ 1.280</strong>
+            <button type="button" class="add-cart" data-add-cart>Adicionar à sacola <span>+</span></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="produto produto-02" data-product="FÔLEGO 02" data-price="890" data-reveal>
+        <div class="produto-numero">02</div>
+        <div class="produto-visual-shell">
+          <div class="produto-visual palco-folego" data-tilt>
+            <div class="objeto objeto-folego">
+              <div class="folego-base"></div>
+              <div class="folego-coluna"></div>
+              <div class="folego-boca"></div>
+              <div class="folego-nevoa"><i></i><i></i><i></i></div>
+              <div class="sombra-objeto"></div>
+            </div>
+          </div>
+          <span class="microlegenda">Cerâmica fosca · névoa fria · cápsulas botânicas</span>
+        </div>
+        <div class="produto-info">
+          <div>
+            <p class="produto-tipo">Difusor de aroma</p>
+            <h3>FÔLEGO 02</h3>
+          </div>
+          <p class="produto-descricao">Sem perfume contínuo. FÔLEGO trabalha em pulsos curtos, como uma janela que se abre por alguns segundos e desaparece antes de saturar o espaço.</p>
+          <div class="produto-meta">
+            <span>3 ritmos</span><span>18 m²</span><span>14 h</span><span>silencioso</span>
+          </div>
+          <div class="produto-compra">
+            <strong>R$ 890</strong>
+            <button type="button" class="add-cart" data-add-cart>Adicionar à sacola <span>+</span></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="produto produto-03" data-product="PULSO 03" data-price="1690" data-reveal>
+        <div class="produto-numero">03</div>
+        <div class="produto-visual-shell">
+          <div class="produto-visual palco-pulso" data-tilt>
+            <div class="objeto objeto-pulso">
+              <div class="pulso-disco"><span></span></div>
+              <div class="pulso-aro"></div>
+              <div class="pulso-pino"></div>
+              <div class="sombra-objeto"></div>
+            </div>
+          </div>
+          <span class="microlegenda">Alumínio maciço · transdutor háptico · malha acústica</span>
+        </div>
+        <div class="produto-info">
+          <div>
+            <p class="produto-tipo">Som tátil</p>
+            <h3>PULSO 03</h3>
+          </div>
+          <p class="produto-descricao">Não é uma caixa de som. É uma presença acústica. Encoste a mão e sinta graves atravessando o metal antes de preencherem o ambiente.</p>
+          <div class="produto-meta">
+            <span>360°</span><span>12 h</span><span>Bluetooth</span><span>háptico</span>
+          </div>
+          <div class="produto-compra">
+            <strong>R$ 1.690</strong>
+            <button type="button" class="add-cart" data-add-cart>Adicionar à sacola <span>+</span></button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="manifesto" id="manifesto">
+      <div class="manifesto-coluna" data-reveal>
+        <p class="eyebrow">Manifesto 001</p>
+        <p class="manifesto-grande">Tecnologia deveria desaparecer quando cumpre seu papel.</p>
+      </div>
+      <div class="manifesto-texto" data-reveal>
+        <p>Passamos anos colocando mais telas, mais alertas e mais camadas entre as pessoas e o espaço onde vivem.</p>
+        <p>A MATERAUM nasce do movimento contrário. Tecnologia escondida dentro da matéria. Interações que a mão entende antes da cabeça. Objetos que não pedem atenção — devolvem atenção.</p>
+        <p>Se você precisa de um manual para sentir alguma coisa, nós falhamos.</p>
+      </div>
+      <div class="manifesto-marca" aria-hidden="true">M1</div>
+    </section>
+
+    <section class="materiais" id="materiais">
+      <div class="materiais-topo" data-reveal>
+        <p class="eyebrow">A matéria não é acabamento</p>
+        <h2>Ela é a interface.</h2>
+      </div>
+
+      <div class="materiais-lista">
+        <button class="material-item active" type="button" data-material="mineral" data-reveal>
+          <span>01</span><strong>Mineral recomposto</strong><em>frio, denso, irrepetível</em><b>↗</b>
+        </button>
+        <button class="material-item" type="button" data-material="metal" data-reveal>
+          <span>02</span><strong>Alumínio oxidado</strong><em>marca o tempo sem envelhecer mal</em><b>↗</b>
+        </button>
+        <button class="material-item" type="button" data-material="ceramica" data-reveal>
+          <span>03</span><strong>Cerâmica fosca</strong><em>absorve luz, pede toque</em><b>↗</b>
+        </button>
+        <button class="material-item" type="button" data-material="tecido" data-reveal>
+          <span>04</span><strong>Malha acústica</strong><em>som sem parecer eletrônico</em><b>↗</b>
+        </button>
+      </div>
+
+      <div class="material-stage" aria-live="polite" data-material-stage>
+        <div class="material-swatch material-mineral"></div>
+        <div>
+          <span data-material-code>M-01 / BASALTO</span>
+          <p data-material-copy>Cada peça carrega pequenas variações de grão e porosidade. Não corrigimos isso. É a assinatura do processo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="atelier" id="atelier">
+      <div class="atelier-copy" data-reveal>
+        <p class="eyebrow">Atelier / pequenas séries</p>
+        <h2>Feito devagar<br>para viver muito.</h2>
+        <p>Cada lote é numerado, montado e testado individualmente. Quando uma série acaba, ela pode nunca voltar exatamente igual.</p>
+        <dl>
+          <div><dt>Produção</dt><dd>até 60 unidades / lote</dd></div>
+          <div><dt>Garantia</dt><dd>3 anos + reparo contínuo</dd></div>
+          <div><dt>Envio</dt><dd>Brasil inteiro</dd></div>
+        </dl>
+      </div>
+      <div class="atelier-visual" data-reveal>
+        <div class="atelier-grid" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="atelier-stamp">MATERAUM<br>SÉRIE M1<br>2026</div>
+        <p>Objetos numerados.<br>Peças reparáveis.<br>Embalagem sem plástico.</p>
+      </div>
+    </section>
+
+    <section class="finale" data-reveal>
+      <p>Se um objeto vai ocupar espaço na sua casa, ele precisa merecer existir.</p>
+      <a href="#objetos">Escolher o seu <span>↗</span></a>
+      <div class="finale-word" aria-hidden="true">MATERAUM</div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-marca">
+      <span class="marca-selo">M1</span>
+      <strong>MATERAUM</strong>
+      <p>Objetos para domesticar o invisível.</p>
+    </div>
+    <div class="rodape-links">
+      <a href="#objetos">Coleção</a>
+      <a href="#manifesto">Manifesto</a>
+      <a href="#materiais">Materiais</a>
+      <a href="#atelier">Atelier</a>
+    </div>
+    <div class="rodape-contato">
+      <a href="mailto:atelier@materaum.com">atelier@materaum.com</a>
+      <span>São Paulo · Brasil</span>
+    </div>
+    <div class="rodape-fim">
+      <span>© 2026 MATERAUM</span>
+      <span>Feito para durar. Inclusive este site.</span>
+    </div>
+  </footer>
+
+  <aside class="cart" data-cart aria-hidden="true">
+    <div class="cart-head">
+      <div><span>Sacola</span><strong data-cart-count>0</strong></div>
+      <button type="button" data-close-cart aria-label="Fechar sacola">×</button>
+    </div>
+    <div class="cart-items" data-cart-items>
+      <p class="cart-empty">Sua casa ainda está em silêncio.</p>
+    </div>
+    <div class="cart-footer">
+      <div><span>Total</span><strong data-cart-total>R$ 0</strong></div>
+      <button type="button" data-checkout>Continuar pedido</button>
+      <small>Frete calculado na próxima etapa.</small>
+    </div>
+  </aside>
+  <div class="cart-backdrop" data-cart-backdrop></div>
+
+  <dialog class="checkout" data-checkout-dialog>
+    <button class="checkout-close" type="button" data-close-checkout aria-label="Fechar">×</button>
+    <p class="eyebrow">Pedido reservado por 15 minutos</p>
+    <h2>Quase seu.</h2>
+    <p>Esta é uma experiência demonstrativa de checkout. Para um projeto real, basta conectar o meio de pagamento escolhido.</p>
+    <form data-demo-form>
+      <label>Nome<input type="text" name="nome" autocomplete="name" required></label>
+      <label>E-mail<input type="email" name="email" autocomplete="email" required></label>
+      <label>CEP<input type="text" name="cep" inputmode="numeric" maxlength="9" placeholder="00000-000" required></label>
+      <button type="submit">Reservar coleção</button>
+    </form>
+    <p class="checkout-success" data-checkout-success>Reserva simulada com sucesso. A experiência está pronta para receber uma integração real de pagamento.</p>
+  </dialog>
+
+  <div class="sound-toast" data-sound-toast role="status" aria-live="polite">
+    <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+    <span>PULSO 03 · 48 Hz / demonstração tátil</span>
+  </div>
+</body>
+</html>
