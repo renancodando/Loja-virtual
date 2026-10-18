@@ -1,345 +1,295 @@
 const corpo = document.body;
 const topo = document.querySelector('[data-header]');
 const progresso = document.querySelector('[data-progress]');
-const botaoMenu = document.querySelector('[data-menu-button]');
 const menu = document.querySelector('[data-menu]');
+const botaoMenu = document.querySelector('[data-menu-button]');
 const sacola = document.querySelector('[data-cart]');
 const fundoSacola = document.querySelector('[data-cart-backdrop]');
 const itensSacola = document.querySelector('[data-cart-items]');
 const totalSacola = document.querySelector('[data-cart-total]');
-const contadorSacola = document.querySelector('[data-cart-count]');
+const provador = document.querySelector('[data-fit]');
+const fundoProvador = document.querySelector('[data-fit-backdrop]');
+const vistaRapida = document.querySelector('[data-quick-view]');
 const toast = document.querySelector('[data-toast]');
+const moeda = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
 
-const moeda = new Intl.NumberFormat('pt-BR', {
-  style: 'currency',
-  currency: 'BRL',
-  maximumFractionDigits: 0
-});
+const catalogo = {
+  'CASACO TALUDE 01': { preco: 1180, codigo: 'TVD–001', classe: 'talude', descricao: 'Volume amplo, construção pesada e acabamento pensado para registrar o uso.' },
+  'CALÇA VÁRZEA 02': { preco: 740, codigo: 'TVD–002', classe: 'varzea', descricao: 'Perna curva, cintura limpa e regulagem interna para ajustar sem interromper a silhueta.' },
+  'MALHA COTA 03': { preco: 390, codigo: 'TVD–003', classe: 'cota', descricao: 'Malha compacta de queda reta, gola firme e proporção curta para funcionar sozinha ou em camada.' },
+  'CAMISA ESCARPA 04': { preco: 560, codigo: 'TVD–004', classe: 'escarpa', descricao: 'Tricoline encorpada, fechamento quase invisível e desenho seco sem excesso de detalhe.' }
+};
 
-let selecao = carregarSacola();
+const tecidos = {
+  sarja: { codigo: 'M–01 / SARJA 520' },
+  malha: { codigo: 'M–02 / MALHA 290' },
+  tricoline: { codigo: 'M–03 / TRICOLINE 210' },
+  forro: { codigo: 'M–04 / FORRO 110' }
+};
+
+let carrinho = lerCarrinho();
 let rolagemAnterior = window.scrollY;
+let modoCaimento = 'preciso';
+let produtoRapido = null;
 let timerToast;
 
-function carregarSacola() {
+function lerCarrinho() {
   try {
-    const salvo = localStorage.getItem('lastro:sacola');
+    const salvo = localStorage.getItem('talvegue:sacola');
     return salvo ? JSON.parse(salvo) : [];
   } catch {
     return [];
   }
 }
 
-function salvarSacola() {
+function salvarCarrinho() {
   try {
-    localStorage.setItem('lastro:sacola', JSON.stringify(selecao));
+    localStorage.setItem('talvegue:sacola', JSON.stringify(carrinho));
   } catch {}
 }
 
-function mostrarToast(texto) {
-  window.clearTimeout(timerToast);
-  toast.textContent = texto;
-  toast.classList.add('visivel');
-  timerToast = window.setTimeout(() => toast.classList.remove('visivel'), 2800);
+function travarPagina(estado) {
+  corpo.classList.toggle('travado', estado);
 }
 
-function abrirMenu() {
-  fecharSacola();
-  corpo.classList.add('menu-aberto');
-  menu.classList.add('aberto');
-  menu.setAttribute('aria-hidden', 'false');
-  botaoMenu.setAttribute('aria-expanded', 'true');
-  botaoMenu.setAttribute('aria-label', 'Fechar menu');
-}
-
-function fecharMenu() {
-  corpo.classList.remove('menu-aberto');
+function fecharTudo() {
   menu.classList.remove('aberto');
   menu.setAttribute('aria-hidden', 'true');
   botaoMenu.setAttribute('aria-expanded', 'false');
   botaoMenu.setAttribute('aria-label', 'Abrir menu');
+  sacola.classList.remove('aberta');
+  sacola.setAttribute('aria-hidden', 'true');
+  fundoSacola.classList.remove('ativo');
+  provador.classList.remove('aberto');
+  provador.setAttribute('aria-hidden', 'true');
+  fundoProvador.classList.remove('ativo');
+  vistaRapida.classList.remove('aberta');
+  vistaRapida.setAttribute('aria-hidden', 'true');
+  travarPagina(false);
 }
 
 function alternarMenu() {
-  const aberto = botaoMenu.getAttribute('aria-expanded') === 'true';
-  aberto ? fecharMenu() : abrirMenu();
+  const abrir = botaoMenu.getAttribute('aria-expanded') !== 'true';
+  fecharTudo();
+  if (!abrir) return;
+  menu.classList.add('aberto');
+  menu.setAttribute('aria-hidden', 'false');
+  botaoMenu.setAttribute('aria-expanded', 'true');
+  botaoMenu.setAttribute('aria-label', 'Fechar menu');
+  travarPagina(true);
 }
 
 function abrirSacola() {
-  fecharMenu();
-  corpo.classList.add('sacola-aberta');
+  fecharTudo();
   sacola.classList.add('aberta');
-  fundoSacola.classList.add('ativo');
   sacola.setAttribute('aria-hidden', 'false');
+  fundoSacola.classList.add('ativo');
+  travarPagina(true);
 }
 
-function fecharSacola() {
-  corpo.classList.remove('sacola-aberta');
-  sacola.classList.remove('aberta');
-  fundoSacola.classList.remove('ativo');
-  sacola.setAttribute('aria-hidden', 'true');
+function abrirProvador() {
+  fecharTudo();
+  provador.classList.add('aberto');
+  provador.setAttribute('aria-hidden', 'false');
+  fundoProvador.classList.add('ativo');
+  travarPagina(true);
+  atualizarProvador();
 }
 
-function desenharSacola() {
-  contadorSacola.textContent = selecao.length;
+function aviso(texto) {
+  window.clearTimeout(timerToast);
+  toast.textContent = texto;
+  toast.classList.add('visivel');
+  timerToast = window.setTimeout(() => toast.classList.remove('visivel'), 2600);
+}
 
-  if (!selecao.length) {
-    itensSacola.innerHTML = '<p class="sacola-vazia">A sacola está vazia.</p>';
+function desenharCarrinho() {
+  document.querySelectorAll('[data-cart-count]').forEach(item => item.textContent = carrinho.length);
+  if (!carrinho.length) {
+    itensSacola.innerHTML = '<p class="sacola-vazia">Nada aqui ainda. A Série 01 continua logo atrás.</p>';
     totalSacola.textContent = moeda.format(0);
-    salvarSacola();
+    salvarCarrinho();
     return;
   }
 
-  itensSacola.innerHTML = selecao.map((item, indice) => `
-    <div class="sacola-item">
-      <div class="sacola-item-visual">${item.nome.slice(0, 1)}</div>
-      <div class="sacola-item-info">
-        <strong>${item.nome}</strong>
-        <span>${moeda.format(item.preco)}</span>
-      </div>
-      <button type="button" data-remove-item="${indice}">remover</button>
-    </div>
+  itensSacola.innerHTML = carrinho.map((item, indice) => `
+    <article class="sacola-item">
+      <div class="sacola-miniatura">${item.nome.charAt(0)}</div>
+      <div class="sacola-item-info"><strong>${item.nome}</strong><span>${moeda.format(item.preco)}</span></div>
+      <button type="button" data-remove="${indice}">remover</button>
+    </article>
   `).join('');
 
-  const total = selecao.reduce((soma, item) => soma + item.preco, 0);
-  totalSacola.textContent = moeda.format(total);
-  salvarSacola();
+  totalSacola.textContent = moeda.format(carrinho.reduce((soma, item) => soma + item.preco, 0));
+  salvarCarrinho();
 }
 
-function adicionarProduto(botao) {
+function adicionar(nome, preco) {
+  carrinho.push({ nome, preco });
+  desenharCarrinho();
+  aviso(`${nome} entrou na sacola.`);
+}
+
+function adicionarDoBotao(botao) {
   const produto = botao.closest('[data-product]');
   if (!produto) return;
-
-  selecao.push({
-    nome: produto.dataset.product,
-    preco: Number(produto.dataset.price)
-  });
-
-  botao.classList.add('adicionado');
-  botao.firstChild.textContent = 'Adicionado ';
-  botao.querySelector('span').textContent = '✓';
-
-  window.setTimeout(() => {
-    botao.classList.remove('adicionado');
-    botao.firstChild.textContent = 'Adicionar à sacola ';
-    botao.querySelector('span').textContent = '+';
-  }, 1500);
-
-  desenharSacola();
-  mostrarToast(`${produto.dataset.product} entrou na sacola.`);
+  const nome = produto.dataset.product;
+  const preco = Number(produto.dataset.price);
+  adicionar(nome, preco);
+  const textoOriginal = botao.innerHTML;
+  botao.innerHTML = 'Adicionado <span>✓</span>';
+  window.setTimeout(() => botao.innerHTML = textoOriginal, 1300);
 }
 
-function removerProduto(indice) {
-  const removido = selecao[indice];
-  selecao.splice(indice, 1);
-  desenharSacola();
-  if (removido) mostrarToast(`${removido.nome} foi removido.`);
+function abrirVistaRapida(nome) {
+  const dados = catalogo[nome];
+  if (!dados) return;
+  fecharTudo();
+  produtoRapido = nome;
+  vistaRapida.querySelector('[data-quick-code]').textContent = dados.codigo;
+  vistaRapida.querySelector('[data-quick-name]').textContent = nome;
+  vistaRapida.querySelector('[data-quick-copy]').textContent = dados.descricao;
+  const silhueta = vistaRapida.querySelector('.vista-silhueta');
+  silhueta.className = `vista-silhueta ${dados.classe}`;
+  vistaRapida.classList.add('aberta');
+  vistaRapida.setAttribute('aria-hidden', 'false');
+  travarPagina(true);
 }
 
 function atualizarRolagem() {
   const atual = window.scrollY;
   const limite = document.documentElement.scrollHeight - window.innerHeight;
-  const percentual = limite > 0 ? atual / limite : 0;
-
-  progresso.style.transform = `scaleX(${percentual})`;
-  topo.classList.toggle('rolado', atual > 20);
-
-  if (!corpo.classList.contains('menu-aberto') && !corpo.classList.contains('sacola-aberta')) {
-    topo.classList.toggle('oculto', atual > rolagemAnterior && atual > 180);
-  }
-
+  progresso.style.transform = `scaleX(${limite > 0 ? atual / limite : 0})`;
+  topo.classList.toggle('rolado', atual > 18);
+  if (!corpo.classList.contains('travado')) topo.classList.toggle('oculto', atual > rolagemAnterior && atual > 160);
   rolagemAnterior = atual;
 }
 
 function prepararRevelacao() {
   const elementos = document.querySelectorAll('[data-reveal]');
-
   if (!('IntersectionObserver' in window)) {
-    elementos.forEach(elemento => elemento.classList.add('visivel'));
+    elementos.forEach(item => item.classList.add('visivel'));
     return;
   }
-
   const observador = new IntersectionObserver(entradas => {
     entradas.forEach(entrada => {
       if (!entrada.isIntersecting) return;
       entrada.target.classList.add('visivel');
       observador.unobserve(entrada.target);
     });
-  }, {
-    rootMargin: '0px 0px -10% 0px',
-    threshold: .08
-  });
+  }, { threshold: .08, rootMargin: '0px 0px -8% 0px' });
+  elementos.forEach(item => observador.observe(item));
+}
 
-  elementos.forEach(elemento => observador.observe(elemento));
+function prepararPonteiro() {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const ponteiro = document.querySelector('.ponteiro');
+  window.addEventListener('pointermove', evento => {
+    ponteiro.style.left = `${evento.clientX}px`;
+    ponteiro.style.top = `${evento.clientY}px`;
+    ponteiro.classList.add('ativo');
+  }, { passive: true });
+  document.addEventListener('pointerover', evento => ponteiro.classList.toggle('link', Boolean(evento.target.closest('a, button, input'))));
+  document.documentElement.addEventListener('mouseleave', () => ponteiro.classList.remove('ativo'));
 }
 
 function prepararInclinacao() {
   if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
   document.querySelectorAll('[data-tilt]').forEach(area => {
-    const objeto = area.matches('[data-tilt]') && (area.classList.contains('brasa') || area.classList.contains('folego') || area.classList.contains('pulso'))
-      ? area
-      : area.querySelector('.brasa, .folego, .pulso');
-
-    if (!objeto) return;
-
+    const molde = area.querySelector('.molde');
+    if (!molde) return;
     area.addEventListener('pointermove', evento => {
       const caixa = area.getBoundingClientRect();
       const x = (evento.clientX - caixa.left) / caixa.width - .5;
       const y = (evento.clientY - caixa.top) / caixa.height - .5;
-      objeto.style.transform = `perspective(900px) rotateX(${y * -7}deg) rotateY(${x * 9}deg) translate3d(${x * 5}px, ${y * 4}px, 0)`;
+      molde.style.transform = `perspective(900px) rotateX(${y * -4}deg) rotateY(${x * 6}deg) translate3d(${x * 10}px, ${y * 8}px, 0)`;
     });
-
-    area.addEventListener('pointerleave', () => {
-      objeto.style.transform = '';
-    });
+    area.addEventListener('pointerleave', () => molde.style.transform = '');
   });
 }
 
-function prepararCursor() {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-
-  const cursor = document.querySelector('.cursor');
-  if (!cursor) return;
-
-  window.addEventListener('pointermove', evento => {
-    cursor.style.left = `${evento.clientX}px`;
-    cursor.style.top = `${evento.clientY}px`;
-    cursor.classList.add('ativo');
-  }, { passive: true });
-
-  document.addEventListener('pointerover', evento => {
-    cursor.classList.toggle('sobre-link', Boolean(evento.target.closest('a, button, input')));
-  });
-
-  document.documentElement.addEventListener('mouseleave', () => cursor.classList.remove('ativo'));
+function trocarTecido(botao) {
+  const nome = botao.dataset.swatch;
+  if (!tecidos[nome]) return;
+  document.querySelectorAll('[data-swatch]').forEach(item => item.classList.toggle('ativo', item === botao));
+  const palco = document.querySelector('[data-swatch-stage]');
+  palco.dataset.swatchStage = nome;
+  palco.querySelector('[data-swatch-code]').textContent = tecidos[nome].codigo;
 }
 
-const materiais = {
-  basalto: {
-    codigo: 'M-01 / BASALTO',
-    texto: 'Cada peça conserva pequenas diferenças de grão, porosidade e densidade. Elas não são defeito nem decoração: são consequência do processo.'
-  },
-  aluminio: {
-    codigo: 'M-02 / ALUMÍNIO',
-    texto: 'O acabamento anodizado protege sem esconder o metal. Marcas leves de uso passam a fazer parte da superfície em vez de parecerem desgaste descartável.'
-  },
-  ceramica: {
-    codigo: 'M-03 / CERÂMICA',
-    texto: 'A superfície fosca difunde reflexos e mantém o toque seco. Cada queima muda discretamente a tonalidade e impede que duas peças sejam idênticas.'
-  },
-  malha: {
-    codigo: 'M-04 / MALHA',
-    texto: 'Uma trama aberta o suficiente para o som atravessar e fechada o bastante para esconder o componente acústico. Tecnologia presente, visualmente ausente.'
-  }
-};
+function atualizarProvador() {
+  const altura = Number(document.querySelector('[data-height]').value);
+  const torax = Number(document.querySelector('[data-chest]').value);
+  document.querySelector('[data-height-output]').textContent = `${altura} cm`;
+  document.querySelector('[data-chest-output]').textContent = `${torax} cm`;
 
-function selecionarMaterial(botao) {
-  const nome = botao.dataset.material;
-  const dados = materiais[nome];
-  const palco = document.querySelector('[data-material-stage]');
-  if (!dados || !palco) return;
-
-  document.querySelectorAll('[data-material]').forEach(item => item.classList.toggle('ativo', item === botao));
-  palco.dataset.materialStage = nome;
-  document.querySelector('[data-material-code]').textContent = dados.codigo;
-  document.querySelector('[data-material-copy]').textContent = dados.texto;
-}
-
-function prepararAmbiente() {
-  const controle = document.querySelector('[data-ambient-range]');
-  const ambiente = document.querySelector('[data-ambient]');
-  const valor = document.querySelector('[data-ambient-value]');
-  if (!controle || !ambiente || !valor) return;
-
-  const atualizar = () => {
-    const intensidade = Number(controle.value);
-    valor.textContent = intensidade;
-    ambiente.style.setProperty('--luz', (intensidade / 100).toFixed(2));
+  let indice = torax < 88 ? 0 : torax < 98 ? 1 : torax < 108 ? 2 : torax < 120 ? 3 : 4;
+  if (altura > 188 && indice < 4) indice += 1;
+  if (modoCaimento === 'solto' && indice < 4) indice += 1;
+  if (modoCaimento === 'amplo' && indice < 3) indice += 2;
+  const tamanhos = ['PP', 'P', 'M', 'G', 'GG'];
+  const copias = {
+    preciso: 'Linha próxima ao corpo, mantendo mobilidade suficiente para o uso diário.',
+    solto: 'Estrutura equilibrada, com espaço para uma camada leve por baixo.',
+    amplo: 'Volume deliberado, ombro mais baixo e leitura mais arquitetônica da peça.'
   };
-
-  controle.addEventListener('input', atualizar);
-  atualizar();
-}
-
-async function tocarPulso() {
-  const Audio = window.AudioContext || window.webkitAudioContext;
-
-  if (!Audio) {
-    mostrarToast('Seu navegador não liberou a demonstração de áudio.');
-    return;
-  }
-
-  const contexto = new Audio();
-  await contexto.resume();
-  const ganho = contexto.createGain();
-  ganho.connect(contexto.destination);
-
-  const agora = contexto.currentTime;
-  ganho.gain.setValueAtTime(.0001, agora);
-  ganho.gain.exponentialRampToValueAtTime(.23, agora + .035);
-  ganho.gain.exponentialRampToValueAtTime(.0001, agora + 1.9);
-
-  [54, 72, 108].forEach((frequencia, indice) => {
-    const oscilador = contexto.createOscillator();
-    oscilador.type = indice === 0 ? 'sine' : 'triangle';
-    oscilador.frequency.setValueAtTime(frequencia, agora);
-    oscilador.detune.setValueAtTime(indice * -7, agora);
-    oscilador.connect(ganho);
-    oscilador.start(agora + indice * .08);
-    oscilador.stop(agora + 1.95);
-  });
-
-  if ('vibrate' in navigator) navigator.vibrate([55, 70, 45]);
-  mostrarToast('PULSO 03 · resposta tátil de baixa frequência');
-  window.setTimeout(() => contexto.close(), 2200);
+  document.querySelector('[data-size-result]').textContent = tamanhos[Math.min(indice, 4)];
+  document.querySelector('[data-size-copy]').textContent = copias[modoCaimento];
 }
 
 botaoMenu.addEventListener('click', alternarMenu);
-
 document.querySelectorAll('[data-open-cart]').forEach(botao => botao.addEventListener('click', abrirSacola));
-document.querySelector('[data-close-cart]').addEventListener('click', fecharSacola);
-fundoSacola.addEventListener('click', fecharSacola);
+document.querySelector('[data-close-cart]').addEventListener('click', fecharTudo);
+fundoSacola.addEventListener('click', fecharTudo);
+document.querySelectorAll('[data-open-fit]').forEach(botao => botao.addEventListener('click', abrirProvador));
+document.querySelector('[data-close-fit]').addEventListener('click', fecharTudo);
+fundoProvador.addEventListener('click', fecharTudo);
+document.querySelector('[data-close-quick]').addEventListener('click', fecharTudo);
 
-document.querySelectorAll('[data-add-cart]').forEach(botao => {
-  botao.addEventListener('click', () => adicionarProduto(botao));
+document.querySelectorAll('[data-add-cart]').forEach(botao => botao.addEventListener('click', () => adicionarDoBotao(botao)));
+document.querySelectorAll('[data-quick]').forEach(botao => botao.addEventListener('click', () => abrirVistaRapida(botao.dataset.quick)));
+document.querySelector('[data-quick-add]').addEventListener('click', () => {
+  if (!produtoRapido) return;
+  const dados = catalogo[produtoRapido];
+  adicionar(produtoRapido, dados.preco);
+  fecharTudo();
+  abrirSacola();
 });
 
 itensSacola.addEventListener('click', evento => {
-  const botao = evento.target.closest('[data-remove-item]');
+  const botao = evento.target.closest('[data-remove]');
   if (!botao) return;
-  removerProduto(Number(botao.dataset.removeItem));
+  carrinho.splice(Number(botao.dataset.remove), 1);
+  desenharCarrinho();
 });
 
 document.querySelector('[data-checkout]').addEventListener('click', () => {
-  if (!selecao.length) {
-    mostrarToast('Escolha pelo menos um objeto antes de continuar.');
-    return;
-  }
-  mostrarToast('Demonstração: aqui entra o checkout ou o meio de pagamento do cliente.');
+  if (!carrinho.length) return aviso('Escolha uma peça antes de continuar.');
+  aviso('Checkout demonstrativo pronto para receber o meio de pagamento real.');
 });
 
-document.querySelectorAll('[data-material]').forEach(botao => {
-  botao.addEventListener('click', () => selecionarMaterial(botao));
-});
-
-document.querySelectorAll('.menu-mobile a').forEach(link => link.addEventListener('click', fecharMenu));
-document.querySelector('[data-demo-sound]').addEventListener('click', tocarPulso);
+document.querySelectorAll('[data-swatch]').forEach(botao => botao.addEventListener('click', () => trocarTecido(botao)));
+document.querySelectorAll('[data-fit-mode]').forEach(botao => botao.addEventListener('click', () => {
+  modoCaimento = botao.dataset.fitMode;
+  document.querySelectorAll('[data-fit-mode]').forEach(item => item.classList.toggle('ativo', item === botao));
+  atualizarProvador();
+}));
+document.querySelector('[data-height]').addEventListener('input', atualizarProvador);
+document.querySelector('[data-chest]').addEventListener('input', atualizarProvador);
+document.querySelectorAll('.menu a').forEach(link => link.addEventListener('click', fecharTudo));
 
 document.addEventListener('keydown', evento => {
-  if (evento.key !== 'Escape') return;
-  fecharMenu();
-  fecharSacola();
+  if (evento.key === 'Escape') fecharTudo();
 });
-
 window.addEventListener('scroll', atualizarRolagem, { passive: true });
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 980) fecharMenu();
+  if (window.innerWidth > 1100 && menu.classList.contains('aberto')) fecharTudo();
 }, { passive: true });
 
 prepararRevelacao();
+prepararPonteiro();
 prepararInclinacao();
-prepararCursor();
-prepararAmbiente();
-desenharSacola();
+desenharCarrinho();
+atualizarProvador();
 atualizarRolagem();
