@@ -3,325 +3,285 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#e9e4da">
-  <meta name="description" content="LASTRO — objetos sensoriais que devolvem peso, presença e ritmo ao ambiente.">
-  <title>LASTRO — objetos que devolvem peso ao instante</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23171714'/%3E%3Cpath d='M27 23h13v42h33v12H27z' fill='%23e9e4da'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#d9d4c8">
+  <meta name="description" content="TALVEGUE — roupa desenhada para ganhar história no corpo. Série 01, feita no Brasil.">
+  <title>TALVEGUE — roupa para ganhar história</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23191917'/%3E%3Cpath d='M15 23h70v13H57v41H43V36H15z' fill='%23d9d4c8'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
 </head>
 <body>
-  <div class="progresso" aria-hidden="true"><span data-progress></span></div>
-  <div class="ruido" aria-hidden="true"></div>
-  <div class="cursor" aria-hidden="true"></div>
+  <div class="linha-progresso" aria-hidden="true"><i data-progress></i></div>
+  <div class="grao" aria-hidden="true"></div>
+  <div class="ponteiro" aria-hidden="true"><span></span></div>
 
-  <header class="topo" data-header>
-    <a class="marca" href="#inicio" aria-label="LASTRO, início">
-      <span class="marca-sinal">L</span>
-      <span class="marca-nome">LASTRO</span>
+  <header class="cabecalho" data-header>
+    <a class="assinatura" href="#inicio" aria-label="TALVEGUE, início">
+      <span class="assinatura-nome">TALVEGUE</span>
+      <span class="assinatura-serie">SÉRIE 01 / 26</span>
     </a>
 
-    <nav class="nav-principal" aria-label="Navegação principal">
-      <a href="#colecao">Coleção</a>
-      <a href="#ritual">Ritual</a>
+    <nav class="navegacao" aria-label="Navegação principal">
+      <a href="#pecas">Peças</a>
+      <a href="#corte">Corte</a>
       <a href="#materia">Matéria</a>
-      <a href="#origem">Origem</a>
+      <a href="#caderno">Caderno</a>
     </nav>
 
-    <div class="topo-acoes">
-      <button class="sacola-atalho" type="button" data-open-cart>
-        Sacola <span data-cart-count>0</span>
-      </button>
-      <button class="menu-botao" type="button" data-menu-button aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
-        <span></span>
-        <span></span>
+    <div class="acoes-topo">
+      <button class="abrir-sacola" type="button" data-open-cart>Sacola <b data-cart-count>0</b></button>
+      <button class="abrir-menu" type="button" data-menu-button aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <span></span><span></span>
       </button>
     </div>
   </header>
 
-  <aside class="menu-mobile" id="menu-mobile" data-menu aria-hidden="true">
-    <div class="menu-mobile-links">
-      <a href="#colecao">Coleção <span>01</span></a>
-      <a href="#ritual">Ritual <span>02</span></a>
-      <a href="#materia">Matéria <span>03</span></a>
-      <a href="#origem">Origem <span>04</span></a>
+  <aside class="menu" id="menu" data-menu aria-hidden="true">
+    <div class="menu-indice">TVG / 01</div>
+    <nav>
+      <a href="#pecas"><span>01</span>Peças</a>
+      <a href="#corte"><span>02</span>Corte</a>
+      <a href="#materia"><span>03</span>Matéria</a>
+      <a href="#caderno"><span>04</span>Caderno</a>
+    </nav>
+    <div class="menu-rodape">
+      <p>Roupa feita para acumular uso, não para parecer nova para sempre.</p>
+      <span>Brasil · 2026</span>
     </div>
-    <p>Objetos para casas que não precisam de mais uma tela.</p>
   </aside>
 
   <main>
-    <section class="hero" id="inicio">
-      <div class="hero-copy" data-reveal>
-        <p class="rotulo">Coleção 01 · São Paulo, 2026</p>
-        <h1>Menos ruído.<br><em>Mais peso.</em></h1>
-        <p class="hero-texto">LASTRO cria objetos sensoriais para devolver presença ao ambiente. Luz, aroma e som sem telas, sem notificações e sem pedir sua atenção o tempo inteiro.</p>
-        <div class="hero-acoes">
-          <a class="botao botao-cheio" href="#colecao">Conhecer os objetos <span>↘</span></a>
-          <button class="botao botao-linha" type="button" data-demo-sound>Sentir o PULSO 03</button>
+    <section class="abertura" id="inicio">
+      <div class="abertura-texto" data-reveal>
+        <p class="micro">Série inaugural · roupa de uso contínuo</p>
+        <h1>O corpo muda.<br><em>A roupa aprende.</em></h1>
+        <p class="abertura-resumo">TALVEGUE desenha peças para atravessar rotina, atrito, dobra, chuva e repetição. O acabamento não tenta congelar o tecido no primeiro dia. Ele foi pensado para ficar melhor depois dele.</p>
+        <div class="abertura-acoes">
+          <a href="#pecas" class="botao botao-escuro">Ver Série 01 <span>↓</span></a>
+          <button class="botao botao-claro" type="button" data-open-fit>Encontrar meu corte</button>
         </div>
       </div>
 
-      <div class="hero-palco" data-reveal>
-        <div class="coordenadas" aria-hidden="true">
-          <span>23°33' S</span>
-          <span>46°38' W</span>
+      <div class="abertura-editorial" data-reveal>
+        <div class="editorial-fundo"></div>
+        <div class="figura figura-frente" aria-hidden="true">
+          <i class="cabeca"></i><i class="pescoco"></i><i class="tronco"></i><i class="braco esquerdo"></i><i class="braco direito"></i><i class="perna esquerda"></i><i class="perna direita"></i>
+          <span class="jaqueta"></span><span class="calca"></span>
         </div>
-        <div class="brasa brasa-grande" data-tilt>
-          <div class="brasa-casca"></div>
-          <div class="brasa-fenda"></div>
-          <div class="brasa-nucleo"></div>
-          <div class="objeto-sombra"></div>
+        <div class="editorial-dados">
+          <span>LOOK 01</span>
+          <span>CASACO TALUDE + CALÇA VÁRZEA</span>
+          <span>177 CM / M</span>
         </div>
-        <div class="hero-legenda">
-          <span>BRASA 01</span>
-          <span>luz mineral · 2700K</span>
-        </div>
+        <div class="editorial-marca" aria-hidden="true">TVG</div>
       </div>
 
-      <div class="hero-indice" aria-hidden="true">
-        <span>01 — luz</span>
-        <span>02 — aroma</span>
-        <span>03 — som</span>
+      <div class="abertura-regua" aria-hidden="true">
+        <span>33°</span><i></i><span>ALGODÃO 520 g/m²</span><i></i><span>04 PEÇAS</span><i></i><span>SEM COLEÇÃO DESCARTÁVEL</span>
       </div>
     </section>
 
-    <section class="faixa" aria-label="Princípios LASTRO">
-      <div class="faixa-trilha">
-        <span>SEM TELA</span><i>●</i><span>REPARÁVEL</span><i>●</i><span>MATÉRIA REAL</span><i>●</i><span>RITMO LENTO</span><i>●</i><span>TECNOLOGIA INVISÍVEL</span><i>●</i>
-        <span>SEM TELA</span><i>●</i><span>REPARÁVEL</span><i>●</i><span>MATÉRIA REAL</span><i>●</i><span>RITMO LENTO</span><i>●</i><span>TECNOLOGIA INVISÍVEL</span><i>●</i>
-      </div>
+    <section class="frase-corte" data-reveal>
+      <p>Nós não lançamos tendência.</p>
+      <p><strong>Construímos permanência.</strong></p>
     </section>
 
-    <section class="colecao" id="colecao">
-      <header class="secao-intro" data-reveal>
-        <p class="rotulo">Coleção inaugural</p>
-        <h2>Três objetos.<br>Três formas de aterrissar.</h2>
-        <p>Não são aparelhos para ocupar a casa. São instrumentos discretos para mudar como ela é percebida.</p>
+    <section class="pecas" id="pecas">
+      <header class="titulo-secao" data-reveal>
+        <div>
+          <p class="micro">Série 01 · quatro peças</p>
+          <h2>Um sistema de vestir,<br>não uma pilha de novidades.</h2>
+        </div>
+        <p>Volumes que se combinam, tecidos que registram o uso e uma paleta feita para conviver entre si. Sem temporada curta.</p>
       </header>
 
-      <article class="produto" data-product="BRASA 01" data-price="1280" data-reveal>
-        <div class="produto-marcador">01</div>
-        <div class="produto-palco palco-brasa" data-tilt>
-          <div class="brasa">
-            <div class="brasa-casca"></div>
-            <div class="brasa-fenda"></div>
-            <div class="brasa-nucleo"></div>
-            <div class="objeto-sombra"></div>
+      <article class="peca peca-destaque" data-product="CASACO TALUDE 01" data-price="1180" data-code="TVD-001" data-reveal>
+        <div class="peca-visual visual-talude" data-tilt>
+          <div class="molde casaco" aria-hidden="true">
+            <i class="gola"></i><i class="corpo"></i><i class="manga manga-e"></i><i class="manga manga-d"></i><i class="bolso bolso-e"></i><i class="bolso bolso-d"></i><b class="costura"></b>
           </div>
-          <span class="palco-nota">basalto recomposto · alumínio anodizado</span>
+          <div class="peca-codigo">TVD–001 / 520</div>
+          <button class="visual-acao" type="button" data-quick="CASACO TALUDE 01">vista rápida ↗</button>
         </div>
-        <div class="produto-conteudo">
-          <div class="produto-cabecalho">
-            <div>
-              <p class="produto-tipo">Luz de presença</p>
-              <h3>BRASA 01</h3>
-            </div>
-            <span class="produto-preco">R$ 1.280</span>
+        <div class="peca-info">
+          <div class="peca-numero">01</div>
+          <div class="peca-titulo">
+            <p>Casaco de trabalho reconstruído</p>
+            <h3>TALUDE</h3>
           </div>
-          <p class="produto-descricao">Um bloco escuro que guarda luz no interior. O corpo gira sobre a base e abre uma fenda luminosa sem botões, tela ou interface aparente.</p>
-          <ul class="produto-dados">
-            <li><span>Temperatura</span><strong>2700K</strong></li>
-            <li><span>Autonomia</span><strong>18 h</strong></li>
-            <li><span>Peso</span><strong>1,8 kg</strong></li>
-            <li><span>Carga</span><strong>USB-C</strong></li>
-          </ul>
-          <button class="comprar" type="button" data-add-cart>Adicionar à sacola <span>+</span></button>
+          <p class="peca-descricao">Algodão pesado, ombro deslocado e costas com folga suficiente para criar camada sem inflar o corpo. As marcas de dobra ficam no tecido e passam a fazer parte dele.</p>
+          <dl>
+            <div><dt>Matéria</dt><dd>sarja 520 g/m²</dd></div>
+            <div><dt>Corte</dt><dd>amplo / curto</dd></div>
+            <div><dt>Acabamento</dt><dd>lavado em pedra</dd></div>
+            <div><dt>Origem</dt><dd>feito no Brasil</dd></div>
+          </dl>
+          <div class="peca-compra">
+            <strong>R$ 1.180</strong>
+            <button type="button" data-add-cart>Adicionar <span>+</span></button>
+          </div>
         </div>
       </article>
 
-      <article class="produto produto-invertido" data-product="FÔLEGO 02" data-price="890" data-reveal>
-        <div class="produto-marcador">02</div>
-        <div class="produto-palco palco-folego" data-tilt>
-          <div class="folego">
-            <div class="folego-base"></div>
-            <div class="folego-corpo"></div>
-            <div class="folego-boca"></div>
-            <div class="nevoa"><i></i><i></i><i></i><i></i></div>
-            <div class="objeto-sombra"></div>
+      <div class="dupla-produtos">
+        <article class="peca peca-vertical" data-product="CALÇA VÁRZEA 02" data-price="740" data-code="TVD-002" data-reveal>
+          <div class="peca-visual visual-varzea" data-tilt>
+            <div class="molde calca-molde" aria-hidden="true"><i></i><b></b><span></span></div>
+            <div class="peca-codigo">TVD–002 / 380</div>
+            <button class="visual-acao" type="button" data-quick="CALÇA VÁRZEA 02">vista rápida ↗</button>
           </div>
-          <span class="palco-nota">cerâmica fosca · névoa fria · cápsulas botânicas</span>
-        </div>
-        <div class="produto-conteudo">
-          <div class="produto-cabecalho">
-            <div>
-              <p class="produto-tipo">Aroma intermitente</p>
-              <h3>FÔLEGO 02</h3>
-            </div>
-            <span class="produto-preco">R$ 890</span>
+          <div class="peca-info">
+            <div class="peca-numero">02</div>
+            <div class="peca-titulo"><p>Perna curva · cintura limpa</p><h3>VÁRZEA</h3></div>
+            <p class="peca-descricao">Volume controlado no joelho, barra levemente fechada e regulagem interna que dispensa cinto.</p>
+            <div class="peca-compra"><strong>R$ 740</strong><button type="button" data-add-cart>Adicionar <span>+</span></button></div>
           </div>
-          <p class="produto-descricao">Em vez de perfumar o espaço sem parar, libera névoa em ciclos curtos. O aroma chega, ocupa alguns segundos e some antes de cansar.</p>
-          <ul class="produto-dados">
-            <li><span>Ritmos</span><strong>3 modos</strong></li>
-            <li><span>Área</span><strong>até 18 m²</strong></li>
-            <li><span>Autonomia</span><strong>14 h</strong></li>
-            <li><span>Ruído</span><strong>&lt; 18 dB</strong></li>
-          </ul>
-          <button class="comprar" type="button" data-add-cart>Adicionar à sacola <span>+</span></button>
-        </div>
-      </article>
+        </article>
 
-      <article class="produto" data-product="PULSO 03" data-price="1690" data-reveal>
-        <div class="produto-marcador">03</div>
-        <div class="produto-palco palco-pulso" data-tilt>
-          <div class="pulso">
-            <div class="pulso-aro"></div>
-            <div class="pulso-disco"><span></span></div>
-            <div class="pulso-eixo"></div>
-            <div class="objeto-sombra"></div>
+        <article class="peca peca-vertical peca-inversa" data-product="MALHA COTA 03" data-price="390" data-code="TVD-003" data-reveal>
+          <div class="peca-visual visual-cota" data-tilt>
+            <div class="molde camiseta" aria-hidden="true"><i></i><b></b></div>
+            <div class="peca-codigo">TVD–003 / 290</div>
+            <button class="visual-acao" type="button" data-quick="MALHA COTA 03">vista rápida ↗</button>
           </div>
-          <span class="palco-nota">alumínio maciço · transdutor háptico · malha acústica</span>
+          <div class="peca-info">
+            <div class="peca-numero">03</div>
+            <div class="peca-titulo"><p>Malha compacta · gola alta</p><h3>COTA</h3></div>
+            <p class="peca-descricao">Camiseta densa que cai reto e não cola no tronco. A gola é curta, firme e feita para manter a forma.</p>
+            <div class="peca-compra"><strong>R$ 390</strong><button type="button" data-add-cart>Adicionar <span>+</span></button></div>
+          </div>
+        </article>
+      </div>
+
+      <article class="peca peca-faixa" data-product="CAMISA ESCARPA 04" data-price="560" data-code="TVD-004" data-reveal>
+        <div class="peca-info">
+          <div class="peca-numero">04</div>
+          <div class="peca-titulo"><p>Camisa seca · fechamento oculto</p><h3>ESCARPA</h3></div>
+          <p class="peca-descricao">Tricoline encorpada com construção sem excesso visual. Punho largo, gola baixa e linha frontal quase sem interferência.</p>
+          <div class="peca-compra"><strong>R$ 560</strong><button type="button" data-add-cart>Adicionar <span>+</span></button></div>
         </div>
-        <div class="produto-conteudo">
-          <div class="produto-cabecalho">
-            <div>
-              <p class="produto-tipo">Som tátil</p>
-              <h3>PULSO 03</h3>
-            </div>
-            <span class="produto-preco">R$ 1.690</span>
-          </div>
-          <p class="produto-descricao">Uma peça acústica que vibra antes de soar. Graves passam pelo metal e chegam primeiro pela mão. O som ocupa o espaço sem parecer vir de uma caixa.</p>
-          <ul class="produto-dados">
-            <li><span>Dispersão</span><strong>360°</strong></li>
-            <li><span>Autonomia</span><strong>12 h</strong></li>
-            <li><span>Conexão</span><strong>Bluetooth 5.4</strong></li>
-            <li><span>Resposta</span><strong>48 Hz–20 kHz</strong></li>
-          </ul>
-          <button class="comprar" type="button" data-add-cart>Adicionar à sacola <span>+</span></button>
+        <div class="peca-visual visual-escarpa" data-tilt>
+          <div class="molde camisa" aria-hidden="true"><i></i><b></b><span></span></div>
+          <div class="peca-codigo">TVD–004 / 210</div>
+          <button class="visual-acao" type="button" data-quick="CAMISA ESCARPA 04">vista rápida ↗</button>
         </div>
       </article>
     </section>
 
-    <section class="ritual" id="ritual">
-      <div class="ritual-copy" data-reveal>
-        <p class="rotulo">Ritual, não automação</p>
-        <h2>Trinta segundos podem mudar um cômodo inteiro.</h2>
-        <p>Ajuste a intensidade abaixo. O ambiente responde sem menus, presets ou telas intermediando a sensação.</p>
+    <section class="corte" id="corte">
+      <div class="corte-intro" data-reveal>
+        <p class="micro">Corte como arquitetura</p>
+        <h2>Não escolhemos tamanho pelo ego. Escolhemos pelo gesto.</h2>
+        <p>A mesma peça pode ficar precisa, solta ou deliberadamente ampla. O provador TALVEGUE cruza tua medida com a intenção de caimento.</p>
+        <button class="botao botao-escuro" type="button" data-open-fit>Abrir provador <span>↗</span></button>
       </div>
-
-      <div class="ritual-painel" data-reveal>
-        <div class="ritual-ambiente" data-ambient>
-          <div class="janela"><span></span><span></span></div>
-          <div class="mesa"></div>
-          <div class="mini-brasa"><i></i></div>
-          <div class="luz-ambiente"></div>
-        </div>
-        <div class="ritual-controle">
-          <div class="ritual-valor"><span data-ambient-value>42</span><sup>%</sup></div>
-          <label for="intensidade">Intensidade da BRASA</label>
-          <input id="intensidade" type="range" min="5" max="100" value="42" data-ambient-range>
-          <div class="ritual-escala"><span>vigília</span><span>pausa</span><span>noite</span></div>
-        </div>
+      <div class="corte-diagrama" data-reveal aria-label="Diagrama de construção do casaco Talude">
+        <div class="diagrama-corpo"></div>
+        <i class="linha l1"></i><i class="linha l2"></i><i class="linha l3"></i><i class="linha l4"></i>
+        <span class="nota n1">+6 cm<br>ombro</span>
+        <span class="nota n2">64 cm<br>comprimento</span>
+        <span class="nota n3">18°<br>manga</span>
+        <span class="nota n4">volume<br>nas costas</span>
+        <b>01:12</b>
       </div>
-    </section>
-
-    <section class="manifesto">
-      <div class="manifesto-frase" data-reveal>
-        <p class="rotulo">Por que LASTRO</p>
-        <p>Lastro é o peso que estabiliza uma embarcação. Em terra, é aquilo que sustenta, dá base e impede que tudo seja levado pelo movimento.</p>
-      </div>
-      <div class="manifesto-texto" data-reveal>
-        <p>A casa ganhou câmeras, telas, comandos de voz, alertas, aplicativos e mais motivos para olhar para fora dela.</p>
-        <p>Nós seguimos pelo sentido oposto. A tecnologia continua presente, mas deixa de ser protagonista. Ela desaparece dentro da matéria e só reaparece como luz, aroma, vibração e gesto.</p>
-        <strong>O objeto funciona. Depois sai do caminho.</strong>
-      </div>
-      <div class="manifesto-palavra" aria-hidden="true">LASTRO</div>
     </section>
 
     <section class="materia" id="materia">
-      <header class="materia-cabecalho" data-reveal>
-        <p class="rotulo">Matéria é interface</p>
-        <h2>O toque vem antes do comando.</h2>
+      <header class="titulo-secao" data-reveal>
+        <div><p class="micro">Matéria antes da imagem</p><h2>O tecido não serve<br>para parecer caro.</h2></div>
+        <p>Serve para aguentar repetição, responder ao corpo e envelhecer sem pedir desculpa.</p>
       </header>
 
-      <div class="materia-layout">
-        <div class="materiais-lista" data-reveal>
-          <button class="material ativo" type="button" data-material="basalto">
-            <span>01</span><strong>Basalto recomposto</strong><em>frio · denso · poroso</em><b>↗</b>
-          </button>
-          <button class="material" type="button" data-material="aluminio">
-            <span>02</span><strong>Alumínio anodizado</strong><em>preciso · reparável · tátil</em><b>↗</b>
-          </button>
-          <button class="material" type="button" data-material="ceramica">
-            <span>03</span><strong>Cerâmica fosca</strong><em>seca · suave · silenciosa</em><b>↗</b>
-          </button>
-          <button class="material" type="button" data-material="malha">
-            <span>04</span><strong>Malha acústica</strong><em>respirável · neutra · técnica</em><b>↗</b>
-          </button>
+      <div class="materia-experimento" data-reveal>
+        <div class="amostra" data-swatch-stage="sarja">
+          <div class="amostra-superficie"></div>
+          <div class="amostra-marcas"><i></i><i></i><i></i></div>
+          <span data-swatch-code>M–01 / SARJA 520</span>
         </div>
-
-        <div class="amostra" data-material-stage data-reveal>
-          <div class="amostra-superficie" data-material-surface></div>
-          <div class="amostra-copy">
-            <span data-material-code>M-01 / BASALTO</span>
-            <p data-material-copy>Cada peça conserva pequenas diferenças de grão, porosidade e densidade. Elas não são defeito nem decoração: são consequência do processo.</p>
-          </div>
+        <div class="materia-lista">
+          <button class="ativo" type="button" data-swatch="sarja"><span>01</span><strong>Sarja 520</strong><em>seca · pesada · marcada</em></button>
+          <button type="button" data-swatch="malha"><span>02</span><strong>Malha 290</strong><em>compacta · fria · estável</em></button>
+          <button type="button" data-swatch="tricoline"><span>03</span><strong>Tricoline 210</strong><em>limpa · firme · respirável</em></button>
+          <button type="button" data-swatch="forro"><span>04</span><strong>Forro 110</strong><em>leve · fosco · silencioso</em></button>
         </div>
       </div>
     </section>
 
-    <section class="origem" id="origem">
-      <div class="origem-copy" data-reveal>
-        <p class="rotulo">Pequenas séries</p>
-        <h2>Feito para permanecer, não para ser substituído.</h2>
-        <p>Cada lote é numerado, montado e testado individualmente. As peças são abertas por encaixes e parafusos comuns, não por cola permanente. Se uma parte envelhece, ela pode ser trocada.</p>
-      </div>
-      <dl class="origem-dados" data-reveal>
-        <div><dt>Produção</dt><dd>60 unidades por lote</dd></div>
-        <div><dt>Garantia</dt><dd>3 anos</dd></div>
-        <div><dt>Reparo</dt><dd>peças modulares</dd></div>
-        <div><dt>Embalagem</dt><dd>sem plástico</dd></div>
-        <div><dt>Envio</dt><dd>todo o Brasil</dd></div>
-      </dl>
-      <div class="origem-selo" data-reveal>
-        <span>L / 01</span>
-        <p>LASTRO<br>objetos de presença<br>coleção inaugural</p>
-        <b>2026</b>
+    <section class="tempo" data-reveal>
+      <div class="tempo-palavra" aria-hidden="true">USO</div>
+      <div class="tempo-texto">
+        <p class="micro">Dia 1 → Dia 365</p>
+        <h2>Uma peça TALVEGUE não termina quando sai da oficina.</h2>
+        <div class="tempo-regua">
+          <span><b>01</b>fibra firme</span>
+          <span><b>30</b>primeiras dobras</span>
+          <span><b>180</b>cor mais funda nas costuras</span>
+          <span><b>365</b>peça com memória</span>
+        </div>
       </div>
     </section>
 
-    <section class="fecho" data-reveal>
-      <p>Se algo vai ocupar espaço na sua casa,<br>precisa merecer estar ali.</p>
-      <a href="#colecao">Encontrar seu LASTRO <span>↗</span></a>
-      <div class="fecho-palavra" aria-hidden="true">LASTRO</div>
+    <section class="caderno" id="caderno">
+      <div class="caderno-capa" data-reveal>
+        <span>CADERNO 001</span>
+        <h2>A roupa<br>depois da foto.</h2>
+        <p>Notas sobre repetição, reparo e o estranho desejo de manter tudo parecendo novo.</p>
+      </div>
+      <div class="caderno-texto" data-reveal>
+        <p>A maior parte da roupa é vendida no minuto mais artificial da própria vida: recém-passada, intocada, sem corpo, sem suor, sem bolso cheio, sem joelho dobrado.</p>
+        <p>TALVEGUE parte do oposto. Desenhamos pensando na centésima vez. No tecido que já sabe onde teu cotovelo dobra. Na barra que encontrou teu passo. Na peça que não precisa ser substituída porque finalmente começou a parecer tua.</p>
+        <a href="#pecas">Voltar às peças <span>↑</span></a>
+      </div>
+    </section>
+
+    <section class="rodape-chamada" data-reveal>
+      <p>SÉRIE 01 DISPONÍVEL</p>
+      <h2>Vista por tempo suficiente<br>para deixar de ser nova.</h2>
+      <a href="#pecas">Escolher peça <span>↗</span></a>
     </section>
   </main>
 
   <footer class="rodape">
-    <div class="rodape-identidade">
-      <a class="marca" href="#inicio"><span class="marca-sinal">L</span><span class="marca-nome">LASTRO</span></a>
-      <p>Objetos que devolvem peso ao instante.</p>
-    </div>
-    <div class="rodape-links">
-      <a href="#colecao">Coleção</a>
-      <a href="#ritual">Ritual</a>
-      <a href="#materia">Matéria</a>
-      <a href="#origem">Origem</a>
-    </div>
-    <div class="rodape-nota">
-      <span>Brasil · 2026</span>
-      <span>Conceito de marca e experiência digital</span>
+    <div class="rodape-marca">TALVEGUE</div>
+    <div class="rodape-grid">
+      <p>Roupa de uso contínuo.<br>Desenhada e feita no Brasil.</p>
+      <div><a href="#pecas">Peças</a><a href="#corte">Corte</a><a href="#materia">Matéria</a></div>
+      <div><a href="#">Instagram</a><a href="#">Atendimento</a><a href="#">Trocas</a></div>
+      <p>© 2026 TALVEGUE<br>Série 01 / 26</p>
     </div>
   </footer>
 
-  <aside class="sacola" data-cart aria-hidden="true" aria-label="Sacola de compras">
-    <div class="sacola-topo">
-      <div>
-        <span class="rotulo">Sua seleção</span>
-        <h2>Sacola</h2>
-      </div>
-      <button type="button" class="sacola-fechar" data-close-cart aria-label="Fechar sacola">×</button>
-    </div>
-    <div class="sacola-itens" data-cart-items>
-      <p class="sacola-vazia">A sacola está vazia.</p>
-    </div>
-    <div class="sacola-rodape">
-      <div class="sacola-total"><span>Total</span><strong data-cart-total>R$ 0</strong></div>
-      <button type="button" class="botao botao-cheio sacola-finalizar" data-checkout>Continuar compra <span>↗</span></button>
-      <small>Frete calculado na etapa seguinte.</small>
-    </div>
-  </aside>
   <div class="sacola-fundo" data-cart-backdrop></div>
+  <aside class="sacola" data-cart aria-hidden="true">
+    <header><div><span>SACOLA</span><b data-cart-count>0</b></div><button type="button" data-close-cart aria-label="Fechar sacola">×</button></header>
+    <div class="sacola-itens" data-cart-items></div>
+    <footer>
+      <div><span>Total</span><strong data-cart-total>R$ 0</strong></div>
+      <button type="button" data-checkout>Continuar para pagamento <span>↗</span></button>
+      <small>Frete calculado na próxima etapa.</small>
+    </footer>
+  </aside>
 
-  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <div class="provador-fundo" data-fit-backdrop></div>
+  <section class="provador" data-fit aria-hidden="true" aria-labelledby="titulo-provador">
+    <header><p>PROVADOR / CORTE</p><button type="button" data-close-fit aria-label="Fechar provador">×</button></header>
+    <div class="provador-conteudo">
+      <div class="provador-intro"><span>01 / MEDIDA</span><h2 id="titulo-provador">Como você quer que a roupa ocupe teu corpo?</h2><p>Não usamos gênero como atalho de tamanho. Altura, tórax e intenção de caimento resolvem melhor.</p></div>
+      <div class="provador-controles">
+        <label>Altura <output data-height-output>175 cm</output><input type="range" min="150" max="205" value="175" data-height></label>
+        <label>Tórax <output data-chest-output>96 cm</output><input type="range" min="76" max="132" value="96" data-chest></label>
+        <fieldset><legend>Caimento</legend><button class="ativo" type="button" data-fit-mode="preciso">Preciso</button><button type="button" data-fit-mode="solto">Solto</button><button type="button" data-fit-mode="amplo">Amplo</button></fieldset>
+        <div class="provador-resultado"><span>RECOMENDAÇÃO</span><strong data-size-result>M</strong><p data-size-copy>Estrutura equilibrada, com espaço para uma camada leve por baixo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vista-rapida" data-quick-view aria-hidden="true">
+    <button type="button" data-close-quick aria-label="Fechar visualização">×</button>
+    <div class="vista-objeto"><div class="vista-silhueta" aria-hidden="true"></div></div>
+    <div class="vista-info"><span data-quick-code>TVD–001</span><h2 data-quick-name>CASACO TALUDE 01</h2><p data-quick-copy>Volume amplo, construção pesada e acabamento pensado para registrar o uso.</p><button type="button" data-quick-add>Adicionar à sacola <span>+</span></button></div>
+  </section>
+
+  <div class="aviso" data-toast role="status" aria-live="polite"></div>
 </body>
 </html>
