@@ -8,6 +8,7 @@
   <title>Saúde & Bem Estar — Vila Rica</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="personaliza.css">
 </head>
 <body>
   <canvas id="respira" aria-hidden="true"></canvas>
@@ -22,7 +23,8 @@
       <a href="#pulso" data-anchor="pulso">II</a>
       <a href="#espaco" data-anchor="espaco">III</a>
       <a href="#ritual" data-anchor="ritual">IV</a>
-      <a href="#chegar" data-anchor="chegar">V</a>
+      <a href="#montar" data-anchor="montar">V</a>
+      <a href="#chegar" data-anchor="chegar">VI</a>
     </nav>
   </aside>
 
@@ -39,6 +41,7 @@
       <a href="#pulso">Seu ritmo</a>
       <a href="#espaco">O espaço</a>
       <a href="#ritual">A rotina</a>
+      <a href="#montar">Monte seu treino</a>
       <a href="#chegar">Como chegar</a>
     </nav>
 
@@ -210,40 +213,102 @@
       </div>
     </section>
 
+    <section class="montar" id="montar" data-section="montar">
+      <div class="montar-topo shell">
+        <div class="rotulo reveal"><span>04</span><b>Sua conversa</b></div>
+        <div class="montar-intro reveal">
+          <span class="micro-etiqueta">você escolhe · o site organiza</span>
+          <h2>Chegue no WhatsApp com a conversa <em>já começada.</em></h2>
+          <p>Conte o que você quer treinar e quando consegue ir. A mensagem é montada na hora para a academia entender seu contexto antes mesmo de responder.</p>
+        </div>
+      </div>
+
+      <div class="construtor shell reveal" data-builder>
+        <div class="construtor-fluxo">
+          <div class="etapa" data-step="1">
+            <div class="etapa-cabeca"><span>01</span><div><b>O que você quer?</b><small>Escolha o foco principal.</small></div></div>
+            <div class="escolhas escolhas-foco" role="group" aria-label="Foco do treino">
+              <button type="button" data-foco="Musculação geral" aria-pressed="false"><i>○</i><span>Musculação geral</span></button>
+              <button type="button" data-foco="Pernas e glúteos" aria-pressed="false"><i>○</i><span>Pernas & glúteos</span></button>
+              <button type="button" data-foco="Peito, ombro e tríceps" aria-pressed="false"><i>○</i><span>Peito · ombro · tríceps</span></button>
+              <button type="button" data-foco="Costas e bíceps" aria-pressed="false"><i>○</i><span>Costas & bíceps</span></button>
+              <button type="button" data-foco="Condicionamento e força" aria-pressed="false"><i>○</i><span>Condicionamento & força</span></button>
+              <button type="button" data-foco="Voltar a treinar depois de um tempo parado" aria-pressed="false"><i>○</i><span>Voltar a treinar</span></button>
+              <button type="button" data-foco="Começar a treinar do zero" aria-pressed="false"><i>○</i><span>Começar do zero</span></button>
+              <button type="button" data-foco="Quero conversar e entender o que faz mais sentido para mim" aria-pressed="false"><i>○</i><span>Ainda não sei</span></button>
+            </div>
+          </div>
+
+          <div class="etapa" data-step="2">
+            <div class="etapa-cabeca"><span>02</span><div><b>Que dias cabem na sua semana?</b><small>Pode marcar mais de um.</small></div></div>
+            <div class="escolhas dias" role="group" aria-label="Dias disponíveis">
+              <button type="button" data-dia-escolha="segunda" aria-pressed="false">seg</button>
+              <button type="button" data-dia-escolha="terça" aria-pressed="false">ter</button>
+              <button type="button" data-dia-escolha="quarta" aria-pressed="false">qua</button>
+              <button type="button" data-dia-escolha="quinta" aria-pressed="false">qui</button>
+              <button type="button" data-dia-escolha="sexta" aria-pressed="false">sex</button>
+              <button type="button" data-dia-escolha="sábado" aria-pressed="false">sáb</button>
+            </div>
+          </div>
+
+          <div class="etapa" data-step="3">
+            <div class="etapa-cabeca"><span>03</span><div><b>Em que horário você consegue?</b><small>Use uma faixa pronta ou informe o seu horário.</small></div></div>
+            <div class="escolhas periodos" role="group" aria-label="Faixas de horário disponíveis">
+              <button type="button" data-periodo="05:00–07:00" aria-pressed="false"><span>cedo</span><b>05—07</b></button>
+              <button type="button" data-periodo="07:00–11:00" aria-pressed="false"><span>manhã</span><b>07—11</b></button>
+              <button type="button" data-periodo="15:00–18:00" aria-pressed="false"><span>tarde</span><b>15—18</b></button>
+              <button type="button" data-periodo="18:00–22:00" aria-pressed="false"><span>noite</span><b>18—22</b></button>
+            </div>
+            <div class="horario-manual">
+              <label><span>de</span><input type="time" data-hora-inicio min="05:00" max="22:00"></label>
+              <i>—</i>
+              <label><span>até</span><input type="time" data-hora-fim min="05:00" max="22:00"></label>
+            </div>
+          </div>
+
+          <div class="etapa" data-step="4">
+            <div class="etapa-cabeca"><span>04</span><div><b>Quer acrescentar alguma coisa?</b><small>Opcional. Escreva do seu jeito.</small></div></div>
+            <label class="campo-livre">
+              <textarea data-observacao rows="4" maxlength="260" placeholder="Ex.: estou voltando depois de alguns meses parado, queria entender como funciona para começar..."></textarea>
+              <span><b data-contador>0</b>/260</span>
+            </label>
+          </div>
+        </div>
+
+        <aside class="mensagem-preview">
+          <div class="preview-topo">
+            <span class="preview-ponto"></span>
+            <div><small>prévia da conversa</small><b>WhatsApp · Saúde & Bem Estar</b></div>
+          </div>
+          <div class="preview-corpo" data-preview aria-live="polite">Escolha o que você quer treinar para começar.</div>
+          <div class="preview-progresso"><i data-builder-progress></i></div>
+          <div class="preview-rodape">
+            <small>Nada é enviado automaticamente.</small>
+            <a class="enviar-whatsapp magnetico" data-enviar href="https://wa.me/5528999529191" target="_blank" rel="noopener" aria-disabled="true">
+              <span>abrir conversa pronta</span><b>↗</b>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
     <section class="chegar" id="chegar" data-section="chegar">
       <div class="chegar-grid shell">
         <div class="chegar-copy reveal">
-          <div class="rotulo claro"><span>04</span><b>Como chegar</b></div>
+          <div class="rotulo claro"><span>05</span><b>Como chegar</b></div>
           <h2>Perto o bastante para <em>virar hábito.</em></h2>
-          <address>Rua Gen. Ozires de Almeida Freitas, 178<br>Vila Rica · Cachoeiro de Itapemirim — ES</address>
+          <address><b>Academia Saúde & Bem Estar</b><br>R. Gen. Ozires de Almeida Freitas, 178<br>Vila Rica · Cachoeiro de Itapemirim — ES<br>CEP 29301-020</address>
           <div class="acoes">
-            <a class="botao botao-claro magnetico" href="https://www.google.com/maps/search/?api=1&query=R.%20Gen.%20Ozires%20de%20Almeida%20Freitas%2C%20178%2C%20Vila%20Rica%2C%20Cachoeiro%20de%20Itapemirim%20ES" target="_blank" rel="noopener" data-cursor="rota"><span>abrir rota</span><i>↗</i></a>
+            <a class="botao botao-claro magnetico" href="https://www.google.com/maps/search/?api=1&query=Academia%20Sa%C3%BAde%20e%20Bem%20Estar%2C%20Cachoeiro%20de%20Itapemirim&query_place_id=ChIJFXfEHJZduQAR4LDC7SW3PEk" target="_blank" rel="noopener" data-cursor="rota"><span>abrir rota</span><i>↗</i></a>
             <a class="link-instagram" href="https://instagram.com/academiasaudeebemestar1" target="_blank" rel="noopener">@academiasaudeebemestar1 ↗</a>
           </div>
         </div>
 
-        <div class="mapa-autoral reveal" data-cursor="Vila Rica">
-          <svg viewBox="0 0 800 650" role="img" aria-label="Mapa gráfico indicando a Academia Saúde e Bem Estar em Vila Rica">
-            <g class="ruas">
-              <path d="M-40 115C120 95 230 140 350 108S590 50 850 82"/>
-              <path d="M-60 320C140 310 190 236 352 248s234 84 510 40"/>
-              <path d="M-30 520c190-52 310-4 456-42s250-106 430-74"/>
-              <path d="M155-30c-8 145 58 225 40 358s-28 212 10 360"/>
-              <path d="M455-30c-46 160 36 218 17 366s20 220 98 350"/>
-              <path d="M680-20c-34 120-20 220 30 332s10 224-8 360"/>
-            </g>
-            <g class="quadras">
-              <rect x="245" y="140" width="115" height="72" rx="8"/><rect x="518" y="112" width="126" height="82" rx="8"/>
-              <rect x="80" y="368" width="122" height="88" rx="8"/><rect x="288" y="360" width="132" height="90" rx="8"/>
-              <rect x="540" y="356" width="132" height="92" rx="8"/>
-            </g>
-            <circle class="pulso-mapa" cx="456" cy="287" r="58"/>
-            <circle class="pino-mapa" cx="456" cy="287" r="10"/>
-            <path class="rota-mapa" d="M85 560C210 530 236 442 330 394s104-70 126-107"/>
-            <text x="482" y="274">Saúde & Bem Estar</text>
-            <text x="482" y="296" class="bairro">Vila Rica</text>
-          </svg>
-          <div class="mapa-legenda"><span>Vila Rica</span><b>Cachoeiro de Itapemirim</b><small>toque em “abrir rota” para navegação real</small></div>
+        <div class="mapa-autoral mapa-real reveal" data-cursor="abrir mapa">
+          <iframe title="Localização exata da Academia Saúde & Bem Estar" src="https://www.google.com/maps?q=R.%20Gen.%20Ozires%20de%20Almeida%20Freitas%2C%20178%2C%20Vila%20Rica%2C%20Cachoeiro%20de%20Itapemirim%20-%20ES%2C%2029301-020&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="mapa-cartao" href="https://www.google.com/maps/search/?api=1&query=Academia%20Sa%C3%BAde%20e%20Bem%20Estar%2C%20Cachoeiro%20de%20Itapemirim&query_place_id=ChIJFXfEHJZduQAR4LDC7SW3PEk" target="_blank" rel="noopener">
+            <span>ponto real</span><b>Saúde & Bem Estar</b><small>R. Gen. Ozires de Almeida Freitas, 178 · Vila Rica</small><i>abrir no Google Maps ↗</i>
+          </a>
         </div>
       </div>
     </section>
@@ -269,5 +334,6 @@
   <a class="mobile-cta" href="https://wa.me/5528999529191?text=Ol%C3%A1%21%20Quero%20conhecer%20a%20Academia%20Sa%C3%BAde%20e%20Bem%20Estar." target="_blank" rel="noopener"><span>WhatsApp</span><b>↗</b></a>
 
   <script src="app.js"></script>
+  <script src="personaliza.js"></script>
 </body>
 </html>
