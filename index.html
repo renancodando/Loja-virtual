@@ -3,164 +3,200 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0b0b0a">
-  <meta name="description" content="Academia Saúde e Bem Estar em Vila Rica, Cachoeiro de Itapemirim. Musculação, fisiculturismo, equipe presente, vestiário e armários.">
+  <meta name="theme-color" content="#071b18">
+  <meta name="description" content="Academia Saúde & Bem Estar em Vila Rica, Cachoeiro de Itapemirim. Musculação, fisiculturismo, vestiário, armários e uma rotina de treino que cabe no seu dia.">
   <title>Saúde & Bem Estar — Vila Rica</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="campo" aria-hidden="true"></canvas>
-  <div class="grain" aria-hidden="true"></div>
+  <canvas id="respira" aria-hidden="true"></canvas>
+  <div class="textura" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span></span></div>
+
+  <aside class="trilho" aria-label="Progresso da página">
+    <span class="trilho-marca">SBE</span>
+    <div class="trilho-linha"><i data-progress></i></div>
+    <nav>
+      <a href="#inicio" data-anchor="inicio" class="ativo">I</a>
+      <a href="#pulso" data-anchor="pulso">II</a>
+      <a href="#espaco" data-anchor="espaco">III</a>
+      <a href="#ritual" data-anchor="ritual">IV</a>
+      <a href="#chegar" data-anchor="chegar">V</a>
+    </nav>
+  </aside>
 
   <header class="cabecalho" data-header>
-    <a class="identidade" href="#inicio" aria-label="Saúde e Bem Estar — início">
-      <span class="identidade-selo">SBE</span>
-      <span class="identidade-nome">Saúde <em>&</em> Bem Estar</span>
+    <a class="marca" href="#inicio" aria-label="Saúde & Bem Estar — início" data-cursor="início">
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M24 6c-6.8 6.6-10.2 12.4-10.2 17.5C13.8 31.6 18.2 38 24 42c5.8-4 10.2-10.4 10.2-18.5C34.2 18.4 30.8 12.6 24 6Z"/>
+        <path d="M12 15c7.4 1.8 11.4 5.6 12 11.4M36 15c-7.4 1.8-11.4 5.6-12 11.4"/>
+      </svg>
+      <span><b>Saúde & Bem Estar</b><small>Vila Rica · Cachoeiro</small></span>
     </a>
-    <nav class="nav" aria-label="Navegação principal">
-      <a href="#ritmo">Ritmo</a>
-      <a href="#espaco">Espaço</a>
-      <a href="#horarios">Horários</a>
-      <a href="#contato">Contato</a>
+
+    <nav class="menu" aria-label="Navegação principal">
+      <a href="#pulso">Seu ritmo</a>
+      <a href="#espaco">O espaço</a>
+      <a href="#ritual">A rotina</a>
+      <a href="#chegar">Como chegar</a>
     </nav>
-    <a class="cabecalho-cta" href="https://wa.me/5528999529191?text=Ol%C3%A1%21%20Quero%20conhecer%20a%20Academia%20Sa%C3%BAde%20e%20Bem%20Estar." target="_blank" rel="noopener">Agendar conversa <span>↗</span></a>
+
+    <a class="botao botao-topo magnetico" href="https://wa.me/5528999529191?text=Ol%C3%A1%21%20Quero%20conhecer%20a%20Academia%20Sa%C3%BAde%20e%20Bem%20Estar." target="_blank" rel="noopener" data-cursor="conversar">
+      <span>falar com a academia</span><i>↗</i>
+    </a>
   </header>
 
   <main>
-    <section class="hero" id="inicio">
-      <div class="hero-fundo" aria-hidden="true">
-        <span class="orb orb-a"></span>
-        <span class="orb orb-b"></span>
-      </div>
+    <section class="hero" id="inicio" data-section="inicio">
+      <div class="hero-codigo" aria-hidden="true">07° / 18° / 29°</div>
 
-      <div class="hero-grade">
-        <div class="hero-copy">
-          <div class="micro" data-reveal>
-            <span class="micro-linha"></span>
-            Vila Rica · Cachoeiro de Itapemirim
-          </div>
-
-          <h1 class="hero-titulo" aria-label="Treino que cabe na vida real">
-            <span class="linha linha-a" data-reveal>Treino que</span>
-            <span class="linha linha-b" data-reveal>cabe na</span>
-            <span class="linha linha-c" data-reveal><i>vida real.</i></span>
-          </h1>
-
-          <div class="hero-rodape" data-reveal>
-            <p>Você não precisa de promessa impossível. Precisa de um lugar em que consegue voltar amanhã.</p>
-            <a class="seta-link" href="#ritmo">Descer para sentir o ritmo <span>↓</span></a>
-          </div>
+      <div class="hero-copy">
+        <div class="sobrelinha reveal">
+          <span class="ponto-vivo"></span>
+          <span>um lugar para voltar ao corpo</span>
         </div>
 
-        <div class="hero-imagem-wrap" data-reveal>
-          <figure class="hero-imagem">
-            <img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Ffilename%2F6058414%2Flg_MSFqfCsU4WT4uOG1mIJUVA9TtSMMoJFR.jpg" alt="Interior da Academia Saúde e Bem Estar em Vila Rica" loading="eager" referrerpolicy="no-referrer">
-            <figcaption>Vila Rica · desde cedo até a noite</figcaption>
-          </figure>
-          <div class="hero-metrica metrica-a"><b>05:00</b><span>o bairro ainda acorda.<br>o treino já começou.</span></div>
-          <div class="hero-metrica metrica-b"><b>4,93</b><span>no Wellhub<br>14 avaliações</span></div>
-          <div class="status-chip"><span data-status-dot></span><b data-status>Verificando horário...</b></div>
+        <h1 class="reveal">
+          <span>Seu corpo</span>
+          <span>tem <em>ritmo.</em></span>
+          <span class="contorno">Respeite.</span>
+        </h1>
+
+        <div class="hero-baixo reveal">
+          <p>Treinar não precisa disputar espaço com a sua vida. Em Vila Rica, a Saúde & Bem Estar abre cedo, volta à tarde e fica até a noite para o movimento entrar na rotina sem tomar conta dela.</p>
+          <a class="link-seta magnetico" href="#pulso" data-cursor="explorar"><span>sentir o ritmo</span><b>↓</b></a>
         </div>
       </div>
 
-      <div class="hero-marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>MUSCULAÇÃO</span><i>—</i><span>FISICULTURISMO</span><i>—</i><span>VESTIÁRIO</span><i>—</i><span>ARMÁRIOS</span><i>—</i><span>VILA RICA</span><i>—</i>
-          <span>MUSCULAÇÃO</span><i>—</i><span>FISICULTURISMO</span><i>—</i><span>VESTIÁRIO</span><i>—</i><span>ARMÁRIOS</span><i>—</i><span>VILA RICA</span><i>—</i>
+      <div class="hero-cena reveal" data-tilt>
+        <figure class="recorte foto-principal" data-parallax="-0.025">
+          <img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Ffilename%2F6058414%2Flg_MSFqfCsU4WT4uOG1mIJUVA9TtSMMoJFR.jpg" alt="Interior da Academia Saúde e Bem Estar" loading="eager" referrerpolicy="no-referrer">
+        </figure>
+
+        <div class="selo-horario">
+          <span data-status-dot></span>
+          <div><small>agora</small><b data-status>consultando horário</b></div>
+        </div>
+
+        <div class="fita" aria-hidden="true">
+          <span>movimento</span><i></i><span>presença</span><i></i><span>rotina</span>
+        </div>
+
+        <div class="hero-nota">
+          <small>segunda — sexta</small>
+          <strong>05:00 <i>↔</i> 22:00</strong>
+          <span>duas janelas no mesmo dia</span>
         </div>
       </div>
     </section>
 
-    <section class="ritmo" id="ritmo">
-      <div class="ritmo-intro shell">
-        <span class="section-index" data-reveal>01 — Ritmo</span>
-        <div class="ritmo-frase" data-reveal>
-          <p>Nem todo treino precisa parecer uma campanha fitness.</p>
-          <h2>Às vezes, ele só precisa <em>acontecer.</em></h2>
+    <section class="pulso" id="pulso" data-section="pulso">
+      <div class="pulso-intro shell">
+        <div class="rotulo reveal"><span>01</span><b>Seu ritmo</b></div>
+        <div class="pulso-copy reveal">
+          <p class="frase-menor">A academia não começa no aparelho.</p>
+          <h2>Começa quando o treino encontra <em>um lugar possível</em> no seu dia.</h2>
         </div>
       </div>
 
-      <div class="tempo shell">
-        <div class="tempo-visual" data-reveal>
-          <div class="relogio" aria-hidden="true">
-            <div class="relogio-anel anel-1"></div>
-            <div class="relogio-anel anel-2"></div>
-            <div class="relogio-marca marca-5">05</div>
-            <div class="relogio-marca marca-11">11</div>
-            <div class="relogio-marca marca-15">15</div>
-            <div class="relogio-marca marca-22">22</div>
-            <div class="relogio-centro"><small>janela de treino</small><strong>05→22</strong><span>dias úteis</span></div>
+      <div class="relogio-experiencia shell reveal" data-time-stage>
+        <div class="relogio-copy">
+          <span class="tempo-tag">hora local</span>
+          <strong data-clock>--:--</strong>
+          <p data-clock-copy>Seu dia, no seu tempo.</p>
+        </div>
+
+        <div class="orbita" aria-label="Linha de horários da academia">
+          <div class="orbita-anel"></div>
+          <div class="orbita-progresso" data-time-progress></div>
+          <span class="marcador m05"><b>05</b><small>abre</small></span>
+          <span class="marcador m11"><b>11</b><small>pausa</small></span>
+          <span class="marcador m15"><b>15</b><small>volta</small></span>
+          <span class="marcador m22"><b>22</b><small>fecha</small></span>
+          <i class="agora" data-now-dot></i>
+          <div class="orbita-centro">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <path d="M24 7c-6.4 6.3-9.6 11.8-9.6 16.6C14.4 31.2 18.6 37.3 24 41c5.4-3.7 9.6-9.8 9.6-17.4C33.6 18.8 30.4 13.3 24 7Z"/>
+              <path d="M12.5 15.5c7 1.6 10.8 5.2 11.5 10.8M35.5 15.5c-7 1.6-10.8 5.2-11.5 10.8"/>
+            </svg>
+            <span>respirar<br>mover<br>voltar</span>
           </div>
         </div>
 
-        <div class="tempo-copy" data-reveal>
-          <p class="kicker">Duas janelas. Um hábito.</p>
-          <h3>Antes do dia começar.<br>Ou depois que ele pesa.</h3>
-          <p>De segunda a sexta, a academia abre às 05:00, pausa no meio do dia e volta às 15:00 até 22:00. É um horário que conversa com a rotina de quem trabalha, estuda e ainda quer cuidar de si.</p>
-          <a href="#horarios" class="linha-link">ver todos os horários <span>↗</span></a>
+        <div class="janelas">
+          <button class="janela ativa" type="button" data-window="manha" data-cursor="manhã">
+            <span>amanhecer</span><b>05—11</b><small>antes que o dia pese</small>
+          </button>
+          <button class="janela" type="button" data-window="noite" data-cursor="fim do dia">
+            <span>entardecer</span><b>15—22</b><small>quando o dia desacelera</small>
+          </button>
         </div>
       </div>
     </section>
 
-    <section class="espaco" id="espaco">
-      <div class="espaco-top shell">
-        <div data-reveal>
-          <span class="section-index claro">02 — Espaço</span>
-          <h2>Sem palco.<br><em>Com presença.</em></h2>
-        </div>
-        <p data-reveal>Musculação, fisiculturismo e o básico que precisa funcionar de verdade: equipe presente, vestiário, armários e um espaço que faz parte do bairro.</p>
+    <section class="espaco" id="espaco" data-section="espaco">
+      <div class="espaco-cabeca shell">
+        <div class="rotulo claro reveal"><span>02</span><b>O espaço</b></div>
+        <h2 class="reveal">Não é cenário.<br><em>É lugar de uso.</em></h2>
+        <p class="reveal">Equipamentos, circulação, vestiário e armários organizados para uma coisa simples: você chegar, treinar e seguir o dia.</p>
       </div>
 
-      <div class="galeria-editorial shell">
-        <figure class="quadro quadro-1" data-parallax="-0.035" data-reveal>
-          <img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Ffilename%2F6058415%2Flg_pLZg6pmVrCm6KmF90PghTCBYh-uUkycs.jpg" alt="Área de equipamentos da Academia Saúde e Bem Estar" loading="lazy" referrerpolicy="no-referrer">
-          <figcaption><b>01</b><span>Equipamento é meio.<br>Constância é método.</span></figcaption>
+      <div class="galeria-viva shell" data-gallery>
+        <figure class="painel painel-a reveal" data-cursor="ver espaço">
+          <div class="imagem-mascara"><img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Ffilename%2F6058415%2Flg_pLZg6pmVrCm6KmF90PghTCBYh-uUkycs.jpg" alt="Área de treino da Academia Saúde e Bem Estar" loading="lazy" referrerpolicy="no-referrer"></div>
+          <figcaption><span>01</span><b>Treino</b><small>musculação · fisiculturismo</small></figcaption>
         </figure>
 
-        <div class="palavra-vertical" aria-hidden="true">PRESENÇA</div>
-
-        <figure class="quadro quadro-2" data-parallax="0.025" data-reveal>
-          <img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Ffilename%2F6058416%2Flg_7A_2vAjuR03Kum1ws1mtketve-2cjHQm.jpg" alt="Espaço de musculação da Academia Saúde e Bem Estar" loading="lazy" referrerpolicy="no-referrer">
-          <figcaption><b>02</b><span>Treinar perto de casa muda a frequência.</span></figcaption>
+        <figure class="painel painel-b reveal" data-cursor="ver detalhes">
+          <div class="imagem-mascara"><img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Ffilename%2F6058416%2Flg_7A_2vAjuR03Kum1ws1mtketve-2cjHQm.jpg" alt="Equipamentos da Academia Saúde e Bem Estar" loading="lazy" referrerpolicy="no-referrer"></div>
+          <figcaption><span>02</span><b>Estrutura</b><small>vestiário · armários</small></figcaption>
         </figure>
 
-        <aside class="placa" data-reveal>
-          <span>o que existe aqui</span>
-          <ul>
-            <li><b>Musculação</b><small>força · condicionamento · rotina</small></li>
-            <li><b>Fisiculturismo</b><small>para quem leva evolução a sério</small></li>
-            <li><b>Vestiário + armários</b><small>o treino encaixa melhor no dia</small></li>
-            <li><b>Wellhub</b><small>acesso a partir do plano Basic</small></li>
-          </ul>
+        <aside class="painel-texto reveal">
+          <span class="micro-etiqueta">o que importa aqui</span>
+          <p>Um espaço de bairro não precisa fingir ser outra coisa. Precisa funcionar bem o suficiente para virar parte da sua semana.</p>
+          <div class="chips">
+            <span>musculação</span><span>fisiculturismo</span><span>vestiário</span><span>armários</span>
+          </div>
         </aside>
       </div>
     </section>
 
-    <section class="prova">
-      <div class="prova-grid shell">
-        <div class="prova-frase" data-reveal>
-          <span class="aspas">“</span>
-          <blockquote>Muito bom! Ótimos equipamentos e funcionários super atenciosos!</blockquote>
-          <small>Avaliação pública da academia</small>
+    <section class="ritual" id="ritual" data-section="ritual">
+      <div class="ritual-sticky">
+        <div class="ritual-fundo" aria-hidden="true"><span>VOLTE</span></div>
+        <div class="ritual-copy shell">
+          <div class="rotulo claro reveal"><span>03</span><b>A rotina</b></div>
+          <h2 class="reveal">O treino não precisa ser épico.<br><em>Precisa caber de novo amanhã.</em></h2>
         </div>
-        <div class="prova-numeros" data-reveal>
-          <div><strong>4,93</strong><span>nota no Wellhub</span></div>
-          <div><strong>14</strong><span>avaliações no Wellhub</span></div>
-          <div><strong>05:00</strong><span>abertura de seg. a sex.</span></div>
+
+        <div class="passos shell">
+          <article class="passo reveal" data-cursor="01">
+            <span>01</span><b>Chegar</b><p>Deixar a rua do lado de fora.</p>
+          </article>
+          <article class="passo reveal" data-cursor="02">
+            <span>02</span><b>Aquecer</b><p>Dar tempo para o corpo entrar.</p>
+          </article>
+          <article class="passo reveal" data-cursor="03">
+            <span>03</span><b>Mover</b><p>Treinar com presença, não pressa.</p>
+          </article>
+          <article class="passo reveal" data-cursor="04">
+            <span>04</span><b>Voltar</b><p>É aqui que a rotina começa.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="horarios" id="horarios">
-      <div class="horarios-grid shell">
-        <div class="horarios-copy" data-reveal>
-          <span class="section-index">03 — Horários</span>
-          <h2>O melhor horário é o que você <em>mantém.</em></h2>
-          <p>O dia atual aparece destacado automaticamente.</p>
+    <section class="agenda" id="horarios" data-section="ritual">
+      <div class="agenda-grid shell">
+        <div class="agenda-titulo reveal">
+          <span class="micro-etiqueta">horários reais</span>
+          <h2>Escolha um horário que não dependa de motivação.</h2>
+          <p>O dia de hoje é destacado automaticamente.</p>
         </div>
 
-        <div class="agenda" data-reveal>
+        <div class="agenda-lista reveal">
           <div class="agenda-head"><span>dia</span><span>manhã</span><span>tarde / noite</span></div>
           <div class="agenda-row" data-day="1"><span>Segunda</span><b>05:00 — 11:00</b><b>15:00 — 22:00</b></div>
           <div class="agenda-row" data-day="2"><span>Terça</span><b>05:00 — 11:00</b><b>15:00 — 22:00</b></div>
@@ -169,53 +205,69 @@
           <div class="agenda-row" data-day="5"><span>Sexta</span><b>05:00 — 11:00</b><b>15:00 — 22:00</b></div>
           <div class="agenda-row" data-day="6"><span>Sábado</span><b>07:00 — 12:00</b><b>—</b></div>
           <div class="agenda-row" data-day="0"><span>Domingo</span><b>Fechado</b><b>—</b></div>
-          <small class="agenda-nota">Horários podem sofrer alterações em feriados. Confirme pelo WhatsApp.</small>
+          <small>Em feriados, confirme o funcionamento diretamente com a academia.</small>
         </div>
       </div>
     </section>
 
-    <section class="manifesto">
-      <div class="manifesto-linhas" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-      <div class="manifesto-copy shell" data-reveal>
-        <p>você não precisa virar outra pessoa para começar.</p>
-        <h2>Comece sendo quem você é.<br><em>Só volte amanhã.</em></h2>
+    <section class="chegar" id="chegar" data-section="chegar">
+      <div class="chegar-grid shell">
+        <div class="chegar-copy reveal">
+          <div class="rotulo claro"><span>04</span><b>Como chegar</b></div>
+          <h2>Perto o bastante para <em>virar hábito.</em></h2>
+          <address>Rua Gen. Ozires de Almeida Freitas, 178<br>Vila Rica · Cachoeiro de Itapemirim — ES</address>
+          <div class="acoes">
+            <a class="botao botao-claro magnetico" href="https://www.google.com/maps/search/?api=1&query=R.%20Gen.%20Ozires%20de%20Almeida%20Freitas%2C%20178%2C%20Vila%20Rica%2C%20Cachoeiro%20de%20Itapemirim%20ES" target="_blank" rel="noopener" data-cursor="rota"><span>abrir rota</span><i>↗</i></a>
+            <a class="link-instagram" href="https://instagram.com/academiasaudeebemestar1" target="_blank" rel="noopener">@academiasaudeebemestar1 ↗</a>
+          </div>
+        </div>
+
+        <div class="mapa-autoral reveal" data-cursor="Vila Rica">
+          <svg viewBox="0 0 800 650" role="img" aria-label="Mapa gráfico indicando a Academia Saúde e Bem Estar em Vila Rica">
+            <g class="ruas">
+              <path d="M-40 115C120 95 230 140 350 108S590 50 850 82"/>
+              <path d="M-60 320C140 310 190 236 352 248s234 84 510 40"/>
+              <path d="M-30 520c190-52 310-4 456-42s250-106 430-74"/>
+              <path d="M155-30c-8 145 58 225 40 358s-28 212 10 360"/>
+              <path d="M455-30c-46 160 36 218 17 366s20 220 98 350"/>
+              <path d="M680-20c-34 120-20 220 30 332s10 224-8 360"/>
+            </g>
+            <g class="quadras">
+              <rect x="245" y="140" width="115" height="72" rx="8"/><rect x="518" y="112" width="126" height="82" rx="8"/>
+              <rect x="80" y="368" width="122" height="88" rx="8"/><rect x="288" y="360" width="132" height="90" rx="8"/>
+              <rect x="540" y="356" width="132" height="92" rx="8"/>
+            </g>
+            <circle class="pulso-mapa" cx="456" cy="287" r="58"/>
+            <circle class="pino-mapa" cx="456" cy="287" r="10"/>
+            <path class="rota-mapa" d="M85 560C210 530 236 442 330 394s104-70 126-107"/>
+            <text x="482" y="274">Saúde & Bem Estar</text>
+            <text x="482" y="296" class="bairro">Vila Rica</text>
+          </svg>
+          <div class="mapa-legenda"><span>Vila Rica</span><b>Cachoeiro de Itapemirim</b><small>toque em “abrir rota” para navegação real</small></div>
+        </div>
       </div>
     </section>
 
-    <section class="contato" id="contato">
-      <div class="contato-grid shell">
-        <div class="contato-esquerda" data-reveal>
-          <span class="section-index claro">04 — Contato</span>
-          <h2>Uma mensagem.<br><em>Um primeiro treino.</em></h2>
-          <p>Quer saber valores, condições de entrada ou confirmar o melhor horário? Fale direto com a academia.</p>
-          <a class="whatsapp-grande" href="https://wa.me/5528999529191?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20Academia%20Sa%C3%BAde%20e%20Bem%20Estar%20e%20quero%20saber%20como%20come%C3%A7ar." target="_blank" rel="noopener">
-            <span>Chamar no WhatsApp</span><b>↗</b>
-          </a>
-        </div>
-
-        <div class="contato-cartao" data-reveal>
-          <div class="cartao-top"><span>SBE / Vila Rica</span><span data-status-card>horário de hoje</span></div>
-          <div class="cartao-meio">
-            <p>R. Gen. Ozires de Almeida Freitas, 178<br>Vila Rica · Cachoeiro de Itapemirim — ES</p>
-            <a href="tel:+5528999529191">(28) 99952-9191</a>
-          </div>
-          <div class="cartao-links">
-            <a href="https://instagram.com/academiasaudeebemestar1" target="_blank" rel="noopener">Instagram <span>↗</span></a>
-            <a href="https://www.google.com/maps/search/?api=1&query=R.%20Gen.%20Ozires%20de%20Almeida%20Freitas%2C%20178%2C%20Vila%20Rica%2C%20Cachoeiro%20de%20Itapemirim%20ES" target="_blank" rel="noopener">Abrir no mapa <span>↗</span></a>
-          </div>
-          <div class="cartao-marca">Saúde <i>&</i><br>Bem Estar</div>
-        </div>
+    <section class="final">
+      <div class="final-simbolo" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M24 6c-6.8 6.6-10.2 12.4-10.2 17.5C13.8 31.6 18.2 38 24 42c5.8-4 10.2-10.4 10.2-18.5C34.2 18.4 30.8 12.6 24 6Z"/><path d="M12 15c7.4 1.8 11.4 5.6 12 11.4M36 15c-7.4 1.8-11.4 5.6-12 11.4"/></svg>
+      </div>
+      <div class="final-copy shell reveal">
+        <span>Saúde & Bem Estar · Vila Rica</span>
+        <h2>Talvez você não precise de um novo plano.<br><em>Só de um lugar para começar.</em></h2>
+        <a class="botao botao-final magnetico" href="https://wa.me/5528999529191?text=Ol%C3%A1%21%20Quero%20conhecer%20a%20Academia%20Sa%C3%BAde%20e%20Bem%20Estar." target="_blank" rel="noopener" data-cursor="começar"><span>falar no WhatsApp</span><i>↗</i></a>
       </div>
     </section>
   </main>
 
   <footer class="rodape shell">
-    <div class="rodape-id"><span class="identidade-selo">SBE</span><b>Saúde & Bem Estar</b></div>
-    <p>Musculação · Fisiculturismo · Vila Rica</p>
-    <a href="#inicio">voltar ao topo ↑</a>
+    <div class="rodape-marca"><b>Saúde & Bem Estar</b><span>movimento · presença · rotina</span></div>
+    <a href="tel:+5528999529191">(28) 99952-9191</a>
+    <a href="#inicio">voltar ao início ↑</a>
   </footer>
 
-  <a class="mobile-cta" href="https://wa.me/5528999529191?text=Ol%C3%A1%21%20Quero%20conhecer%20a%20Academia%20Sa%C3%BAde%20e%20Bem%20Estar." target="_blank" rel="noopener"><span>Falar no WhatsApp</span><b>↗</b></a>
+  <a class="mobile-cta" href="https://wa.me/5528999529191?text=Ol%C3%A1%21%20Quero%20conhecer%20a%20Academia%20Sa%C3%BAde%20e%20Bem%20Estar." target="_blank" rel="noopener"><span>WhatsApp</span><b>↗</b></a>
+
   <script src="app.js"></script>
 </body>
 </html>
