@@ -1,0 +1,104 @@
+.montar{
+  position:relative;
+  overflow:hidden;
+  background:var(--osso);
+  color:var(--noite);
+  padding:clamp(110px,12vw,190px) 0;
+}
+.montar::before{
+  content:"";
+  position:absolute;
+  width:min(70vw,980px);
+  aspect-ratio:1;
+  border:1px solid rgba(7,27,24,.08);
+  border-radius:50%;
+  right:-35vw;
+  top:-32vw;
+  pointer-events:none;
+}
+.montar::after{
+  content:"MENSAGEM";
+  position:absolute;
+  left:-.04em;
+  bottom:-.17em;
+  font-size:clamp(90px,17vw,270px);
+  font-weight:900;
+  letter-spacing:-.08em;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(7,27,24,.055);
+  pointer-events:none;
+  white-space:nowrap;
+}
+.montar-topo{display:grid;grid-template-columns:.34fr 1.66fr;gap:clamp(28px,5vw,80px);position:relative;z-index:2}
+.montar-intro{max-width:980px}
+.montar-intro .micro-etiqueta{color:#67766f}
+.montar-intro h2{margin:18px 0 20px;font-size:clamp(52px,7vw,108px);line-height:.91;letter-spacing:-.072em;max-width:12ch}
+.montar-intro h2 em{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-style:italic;color:var(--argila)}
+.montar-intro>p{max-width:60ch;color:#5f6a65;line-height:1.7;font-size:clamp(14px,1.2vw,18px)}
+.construtor{position:relative;z-index:2;margin-top:clamp(70px,9vw,130px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(340px,.65fr);gap:clamp(28px,5vw,72px);align-items:start}
+.construtor-fluxo{border-top:1px solid var(--linha-escura)}
+.etapa{padding:clamp(26px,3vw,42px) 0;border-bottom:1px solid var(--linha-escura)}
+.etapa-cabeca{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;margin-bottom:24px}
+.etapa-cabeca>span{font-size:10px;font-weight:850;letter-spacing:.14em;color:var(--argila);padding-top:5px}
+.etapa-cabeca b{display:block;font-size:clamp(20px,2vw,30px);letter-spacing:-.035em}
+.etapa-cabeca small{display:block;margin-top:6px;color:#76817b;font-size:11px;letter-spacing:.02em}
+.escolhas{display:flex;flex-wrap:wrap;gap:10px;padding-left:68px}
+.escolhas button{appearance:none;border:1px solid rgba(7,27,24,.2);background:transparent;color:var(--noite);min-height:48px;padding:0 15px;font:inherit;cursor:pointer;transition:transform .22s ease,border-color .22s ease,background .22s ease,color .22s ease,box-shadow .22s ease}
+.escolhas button:hover{transform:translateY(-2px);border-color:rgba(7,27,24,.46)}
+.escolhas button[aria-pressed="true"]{background:var(--noite);color:var(--osso);border-color:var(--noite);box-shadow:0 12px 28px rgba(7,27,24,.12)}
+.escolhas-foco button{display:inline-flex;align-items:center;gap:10px;border-radius:999px;font-size:12px}
+.escolhas-foco button i{font-style:normal;color:var(--argila);transition:transform .2s ease}
+.escolhas-foco button[aria-pressed="true"] i{transform:scale(1.45);color:var(--lima)}
+.dias button{width:58px;padding:0;border-radius:50%;aspect-ratio:1;min-height:0;text-transform:uppercase;font-size:10px;font-weight:850;letter-spacing:.08em}
+.periodos button{display:grid;gap:4px;text-align:left;min-width:128px;padding:13px 15px;border-radius:4px}
+.periodos button span{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#718078}
+.periodos button b{font-size:19px;letter-spacing:-.04em}
+.periodos button[aria-pressed="true"] span{color:#b7c57b}
+.horario-manual{padding-left:68px;margin-top:14px;display:flex;gap:12px;align-items:center}
+.horario-manual label{display:flex;align-items:center;gap:9px;border-bottom:1px solid rgba(7,27,24,.25);padding:8px 0}
+.horario-manual label span{font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:#738078}
+.horario-manual input{border:0;background:transparent;color:var(--noite);font:inherit;font-weight:800;font-size:15px;outline:none}
+.horario-manual i{font-style:normal;color:#819089}
+.campo-livre{display:block;position:relative;margin-left:68px;border:1px solid rgba(7,27,24,.18);background:rgba(255,255,255,.2)}
+.campo-livre textarea{width:100%;resize:vertical;min-height:132px;padding:18px 18px 36px;border:0;outline:none;background:transparent;color:var(--noite);font:inherit;line-height:1.6}
+.campo-livre textarea::placeholder{color:#859089}
+.campo-livre>span{position:absolute;right:12px;bottom:10px;font-size:9px;letter-spacing:.08em;color:#8b958f}
+.mensagem-preview{position:sticky;top:94px;min-height:560px;background:var(--noite);color:var(--osso);padding:clamp(24px,3vw,42px);display:flex;flex-direction:column;box-shadow:0 28px 70px rgba(7,27,24,.2);overflow:hidden}
+.mensagem-preview::after{content:"";position:absolute;width:260px;aspect-ratio:1;border-radius:50%;right:-130px;bottom:-110px;border:1px solid rgba(213,232,107,.12);box-shadow:0 0 0 52px rgba(213,232,107,.025),0 0 0 104px rgba(213,232,107,.015)}
+.preview-topo{display:flex;align-items:center;gap:12px;padding-bottom:20px;border-bottom:1px solid var(--linha)}
+.preview-ponto{width:9px;height:9px;border-radius:50%;background:var(--lima);box-shadow:0 0 0 6px rgba(213,232,107,.09)}
+.preview-topo small,.preview-topo b{display:block}.preview-topo small{font-size:8px;text-transform:uppercase;letter-spacing:.16em;color:#72867d}.preview-topo b{margin-top:4px;font-size:11px;letter-spacing:.02em}
+.preview-corpo{position:relative;z-index:2;flex:1;padding:34px 0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(22px,2.3vw,34px);line-height:1.35;white-space:pre-line;color:#e8e2d6}
+.preview-corpo strong{color:var(--lima)}
+.preview-progresso{height:2px;background:rgba(255,255,255,.09);overflow:hidden;margin-bottom:20px}.preview-progresso i{display:block;height:100%;width:0;background:var(--argila);transition:width .35s ease}
+.preview-rodape{position:relative;z-index:2;display:grid;gap:15px}.preview-rodape small{font-size:9px;color:#718078;letter-spacing:.06em}.enviar-whatsapp{min-height:58px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;background:var(--lima);color:var(--noite);font-size:10px;text-transform:uppercase;letter-spacing:.11em;font-weight:900;transition:opacity .25s,transform .25s,background .25s}
+.enviar-whatsapp:hover{transform:translateY(-2px);background:#e2f381}.enviar-whatsapp[aria-disabled="true"]{opacity:.35;pointer-events:none}.enviar-whatsapp b{font-size:19px}
+.mapa-real{position:relative;overflow:hidden;background:var(--musgo)}
+.mapa-real iframe{display:block;width:100%;height:100%;min-height:540px;border:0;filter:saturate(.55) contrast(1.08) sepia(.08);opacity:.86}
+.mapa-real::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(239,232,218,.14),inset 0 -140px 100px rgba(7,27,24,.45)}
+.mapa-cartao{position:absolute;z-index:3;left:22px;right:22px;bottom:22px;padding:18px 20px;background:rgba(7,27,24,.9);backdrop-filter:blur(14px);border:1px solid rgba(239,232,218,.16);display:grid;grid-template-columns:auto 1fr;gap:3px 14px;align-items:center}
+.mapa-cartao span{grid-row:1/4;font-size:8px;text-transform:uppercase;letter-spacing:.16em;color:var(--lima);writing-mode:vertical-rl;transform:rotate(180deg)}
+.mapa-cartao b{font-size:16px}.mapa-cartao small{color:#a9b4ae;line-height:1.45}.mapa-cartao i{font-style:normal;margin-top:6px;font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--argila)}
+.chegar address b{color:var(--osso);font-style:normal}
+@media (max-width:1100px){
+  .montar-topo{grid-template-columns:1fr;gap:24px}
+  .construtor{grid-template-columns:1fr}
+  .mensagem-preview{position:relative;top:auto;min-height:470px}
+}
+@media (max-width:760px){
+  .montar{padding:90px 0 110px}
+  .montar-intro h2{font-size:clamp(46px,15vw,76px)}
+  .etapa-cabeca{grid-template-columns:40px 1fr}
+  .escolhas,.horario-manual{padding-left:0}
+  .campo-livre{margin-left:0}
+  .dias{display:grid;grid-template-columns:repeat(3,1fr)}
+  .dias button{width:100%;aspect-ratio:auto;min-height:48px;border-radius:999px}
+  .periodos{display:grid;grid-template-columns:1fr 1fr}
+  .periodos button{min-width:0}
+  .horario-manual{flex-wrap:wrap}
+  .mensagem-preview{padding:24px;min-height:420px}
+  .preview-corpo{font-size:24px}
+  .mapa-real iframe{min-height:470px}
+  .mapa-cartao{left:12px;right:12px;bottom:12px}
+}
+@media (prefers-reduced-motion:reduce){.escolhas button,.enviar-whatsapp,.preview-progresso i{transition:none}}
