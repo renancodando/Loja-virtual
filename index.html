@@ -2,286 +2,195 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#d9d4c8">
-  <meta name="description" content="TALVEGUE — roupa desenhada para ganhar história no corpo. Série 01, feita no Brasil.">
-  <title>TALVEGUE — roupa para ganhar história</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23191917'/%3E%3Cpath d='M15 23h70v13H57v41H43V36H15z' fill='%23d9d4c8'/%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151412">
+  <meta name="description" content="Academia Saúde e Bem Estar em Vila Rica, Cachoeiro de Itapemirim. Musculação, fisiculturismo, vestiário e armários.">
+  <title>Academia Saúde e Bem Estar — Cachoeiro de Itapemirim</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
 </head>
 <body>
-  <div class="linha-progresso" aria-hidden="true"><i data-progress></i></div>
-  <div class="grao" aria-hidden="true"></div>
-  <div class="ponteiro" aria-hidden="true"><span></span></div>
+  <div class="noise" aria-hidden="true"></div>
 
-  <header class="cabecalho" data-header>
-    <a class="assinatura" href="#inicio" aria-label="TALVEGUE, início">
-      <span class="assinatura-nome">TALVEGUE</span>
-      <span class="assinatura-serie">SÉRIE 01 / 26</span>
+  <header class="topo" data-topo>
+    <a class="marca" href="#inicio" aria-label="Academia Saúde e Bem Estar — início">
+      <span class="marca-simbolo" aria-hidden="true">S</span>
+      <span class="marca-texto">Saúde <i>&</i> Bem Estar</span>
     </a>
 
-    <nav class="navegacao" aria-label="Navegação principal">
-      <a href="#pecas">Peças</a>
-      <a href="#corte">Corte</a>
-      <a href="#materia">Matéria</a>
-      <a href="#caderno">Caderno</a>
+    <nav class="menu" aria-label="Navegação principal">
+      <a href="#treino">Treino</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#horarios">Horários</a>
+      <a href="#localizacao">Localização</a>
     </nav>
 
-    <div class="acoes-topo">
-      <button class="abrir-sacola" type="button" data-open-cart>Sacola <b data-cart-count>0</b></button>
-      <button class="abrir-menu" type="button" data-menu-button aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
-        <span></span><span></span>
-      </button>
-    </div>
+    <a class="acao-topo" href="https://wa.me/5528999529191?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Academia%20Sa%C3%BAde%20e%20Bem%20Estar." target="_blank" rel="noopener">Falar agora</a>
   </header>
 
-  <aside class="menu" id="menu" data-menu aria-hidden="true">
-    <div class="menu-indice">TVG / 01</div>
-    <nav>
-      <a href="#pecas"><span>01</span>Peças</a>
-      <a href="#corte"><span>02</span>Corte</a>
-      <a href="#materia"><span>03</span>Matéria</a>
-      <a href="#caderno"><span>04</span>Caderno</a>
-    </nav>
-    <div class="menu-rodape">
-      <p>Roupa feita para acumular uso, não para parecer nova para sempre.</p>
-      <span>Brasil · 2026</span>
-    </div>
-  </aside>
-
   <main>
-    <section class="abertura" id="inicio">
-      <div class="abertura-texto" data-reveal>
-        <p class="micro">Série inaugural · roupa de uso contínuo</p>
-        <h1>O corpo muda.<br><em>A roupa aprende.</em></h1>
-        <p class="abertura-resumo">TALVEGUE desenha peças para atravessar rotina, atrito, dobra, chuva e repetição. O acabamento não tenta congelar o tecido no primeiro dia. Ele foi pensado para ficar melhor depois dele.</p>
-        <div class="abertura-acoes">
-          <a href="#pecas" class="botao botao-escuro">Ver Série 01 <span>↓</span></a>
-          <button class="botao botao-claro" type="button" data-open-fit>Encontrar meu corte</button>
+    <section class="hero" id="inicio">
+      <div class="hero-conteudo">
+        <p class="eyebrow" data-reveal>Vila Rica · Cachoeiro de Itapemirim</p>
+        <h1 data-reveal>Seu treino.<br><span>Sem distração.</span></h1>
+        <p class="hero-texto" data-reveal>Musculação e fisiculturismo com uma rotina pensada para quem quer começar cedo, voltar no fim do dia e manter constância de verdade.</p>
+
+        <div class="hero-acoes" data-reveal>
+          <a class="botao botao-principal" href="https://wa.me/5528999529191?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20a%20treinar%20na%20Academia%20Sa%C3%BAde%20e%20Bem%20Estar." target="_blank" rel="noopener">Quero começar</a>
+          <a class="botao botao-linha" href="#horarios">Ver horários</a>
+        </div>
+
+        <div class="hero-dados" data-reveal>
+          <div>
+            <b>05:00</b>
+            <span>Abertura de segunda a sexta</span>
+          </div>
+          <div>
+            <b>22:00</b>
+            <span>Até à noite nos dias úteis</span>
+          </div>
+          <div>
+            <b>Vila Rica</b>
+            <span>Rua Gen. Ozires de Almeida Freitas, 178</span>
+          </div>
         </div>
       </div>
 
-      <div class="abertura-editorial" data-reveal>
-        <div class="editorial-fundo"></div>
-        <div class="figura figura-frente" aria-hidden="true">
-          <i class="cabeca"></i><i class="pescoco"></i><i class="tronco"></i><i class="braco esquerdo"></i><i class="braco direito"></i><i class="perna esquerda"></i><i class="perna direita"></i>
-          <span class="jaqueta"></span><span class="calca"></span>
+      <div class="hero-visual" data-reveal>
+        <figure class="hero-foto">
+          <img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Ffilename%2F6058414%2Flg_MSFqfCsU4WT4uOG1mIJUVA9TtSMMoJFR.jpg" alt="Espaço da Academia Saúde e Bem Estar" loading="eager" referrerpolicy="no-referrer">
+        </figure>
+        <div class="hero-selo" aria-label="Status da academia">
+          <span class="status-ponto" data-status-ponto></span>
+          <span data-status>Consulte o horário de hoje</span>
         </div>
-        <div class="editorial-dados">
-          <span>LOOK 01</span>
-          <span>CASACO TALUDE + CALÇA VÁRZEA</span>
-          <span>177 CM / M</span>
-        </div>
-        <div class="editorial-marca" aria-hidden="true">TVG</div>
-      </div>
-
-      <div class="abertura-regua" aria-hidden="true">
-        <span>33°</span><i></i><span>ALGODÃO 520 g/m²</span><i></i><span>04 PEÇAS</span><i></i><span>SEM COLEÇÃO DESCARTÁVEL</span>
+        <div class="hero-numero" aria-hidden="true">01</div>
       </div>
     </section>
 
-    <section class="frase-corte" data-reveal>
-      <p>Nós não lançamos tendência.</p>
-      <p><strong>Construímos permanência.</strong></p>
+    <section class="faixa" aria-label="Diferenciais">
+      <div class="faixa-trilho">
+        <span>MUSCULAÇÃO</span><i>•</i><span>FISICULTURISMO</span><i>•</i><span>VESTIÁRIO</span><i>•</i><span>ARMÁRIOS</span><i>•</i><span>VILA RICA</span><i>•</i><span>MUSCULAÇÃO</span><i>•</i><span>FISICULTURISMO</span><i>•</i><span>VESTIÁRIO</span>
+      </div>
     </section>
 
-    <section class="pecas" id="pecas">
-      <header class="titulo-secao" data-reveal>
-        <div>
-          <p class="micro">Série 01 · quatro peças</p>
-          <h2>Um sistema de vestir,<br>não uma pilha de novidades.</h2>
-        </div>
-        <p>Volumes que se combinam, tecidos que registram o uso e uma paleta feita para conviver entre si. Sem temporada curta.</p>
-      </header>
+    <section class="secao treino" id="treino">
+      <div class="secao-cabecalho" data-reveal>
+        <span>02 / Treino</span>
+        <h2>Treinar bem é voltar amanhã.</h2>
+      </div>
 
-      <article class="peca peca-destaque" data-product="CASACO TALUDE 01" data-price="1180" data-code="TVD-001" data-reveal>
-        <div class="peca-visual visual-talude" data-tilt>
-          <div class="molde casaco" aria-hidden="true">
-            <i class="gola"></i><i class="corpo"></i><i class="manga manga-e"></i><i class="manga manga-d"></i><i class="bolso bolso-e"></i><i class="bolso bolso-d"></i><b class="costura"></b>
-          </div>
-          <div class="peca-codigo">TVD–001 / 520</div>
-          <button class="visual-acao" type="button" data-quick="CASACO TALUDE 01">vista rápida ↗</button>
-        </div>
-        <div class="peca-info">
-          <div class="peca-numero">01</div>
-          <div class="peca-titulo">
-            <p>Casaco de trabalho reconstruído</p>
-            <h3>TALUDE</h3>
-          </div>
-          <p class="peca-descricao">Algodão pesado, ombro deslocado e costas com folga suficiente para criar camada sem inflar o corpo. As marcas de dobra ficam no tecido e passam a fazer parte dele.</p>
-          <dl>
-            <div><dt>Matéria</dt><dd>sarja 520 g/m²</dd></div>
-            <div><dt>Corte</dt><dd>amplo / curto</dd></div>
-            <div><dt>Acabamento</dt><dd>lavado em pedra</dd></div>
-            <div><dt>Origem</dt><dd>feito no Brasil</dd></div>
-          </dl>
-          <div class="peca-compra">
-            <strong>R$ 1.180</strong>
-            <button type="button" data-add-cart>Adicionar <span>+</span></button>
-          </div>
-        </div>
-      </article>
+      <div class="manifesto" data-reveal>
+        <p>A Saúde e Bem Estar é para quem prefere consistência a promessa rápida. Um espaço de bairro, com equipe presente e foco no que realmente move resultado: <strong>treino, orientação e rotina.</strong></p>
+      </div>
 
-      <div class="dupla-produtos">
-        <article class="peca peca-vertical" data-product="CALÇA VÁRZEA 02" data-price="740" data-code="TVD-002" data-reveal>
-          <div class="peca-visual visual-varzea" data-tilt>
-            <div class="molde calca-molde" aria-hidden="true"><i></i><b></b><span></span></div>
-            <div class="peca-codigo">TVD–002 / 380</div>
-            <button class="visual-acao" type="button" data-quick="CALÇA VÁRZEA 02">vista rápida ↗</button>
-          </div>
-          <div class="peca-info">
-            <div class="peca-numero">02</div>
-            <div class="peca-titulo"><p>Perna curva · cintura limpa</p><h3>VÁRZEA</h3></div>
-            <p class="peca-descricao">Volume controlado no joelho, barra levemente fechada e regulagem interna que dispensa cinto.</p>
-            <div class="peca-compra"><strong>R$ 740</strong><button type="button" data-add-cart>Adicionar <span>+</span></button></div>
-          </div>
+      <div class="modalidades">
+        <article class="modalidade" data-reveal>
+          <span class="modalidade-numero">01</span>
+          <h3>Musculação</h3>
+          <p>Treino de força para diferentes objetivos e níveis de experiência.</p>
+          <span class="seta" aria-hidden="true">↗</span>
         </article>
-
-        <article class="peca peca-vertical peca-inversa" data-product="MALHA COTA 03" data-price="390" data-code="TVD-003" data-reveal>
-          <div class="peca-visual visual-cota" data-tilt>
-            <div class="molde camiseta" aria-hidden="true"><i></i><b></b></div>
-            <div class="peca-codigo">TVD–003 / 290</div>
-            <button class="visual-acao" type="button" data-quick="MALHA COTA 03">vista rápida ↗</button>
-          </div>
-          <div class="peca-info">
-            <div class="peca-numero">03</div>
-            <div class="peca-titulo"><p>Malha compacta · gola alta</p><h3>COTA</h3></div>
-            <p class="peca-descricao">Camiseta densa que cai reto e não cola no tronco. A gola é curta, firme e feita para manter a forma.</p>
-            <div class="peca-compra"><strong>R$ 390</strong><button type="button" data-add-cart>Adicionar <span>+</span></button></div>
-          </div>
+        <article class="modalidade" data-reveal>
+          <span class="modalidade-numero">02</span>
+          <h3>Fisiculturismo</h3>
+          <p>Estrutura voltada para quem busca evolução física com treino consistente.</p>
+          <span class="seta" aria-hidden="true">↗</span>
+        </article>
+        <article class="modalidade" data-reveal>
+          <span class="modalidade-numero">03</span>
+          <h3>Equipe presente</h3>
+          <p>Profissionais prontos para ajudar você a atingir seus objetivos no dia a dia.</p>
+          <span class="seta" aria-hidden="true">↗</span>
         </article>
       </div>
-
-      <article class="peca peca-faixa" data-product="CAMISA ESCARPA 04" data-price="560" data-code="TVD-004" data-reveal>
-        <div class="peca-info">
-          <div class="peca-numero">04</div>
-          <div class="peca-titulo"><p>Camisa seca · fechamento oculto</p><h3>ESCARPA</h3></div>
-          <p class="peca-descricao">Tricoline encorpada com construção sem excesso visual. Punho largo, gola baixa e linha frontal quase sem interferência.</p>
-          <div class="peca-compra"><strong>R$ 560</strong><button type="button" data-add-cart>Adicionar <span>+</span></button></div>
-        </div>
-        <div class="peca-visual visual-escarpa" data-tilt>
-          <div class="molde camisa" aria-hidden="true"><i></i><b></b><span></span></div>
-          <div class="peca-codigo">TVD–004 / 210</div>
-          <button class="visual-acao" type="button" data-quick="CAMISA ESCARPA 04">vista rápida ↗</button>
-        </div>
-      </article>
     </section>
 
-    <section class="corte" id="corte">
-      <div class="corte-intro" data-reveal>
-        <p class="micro">Corte como arquitetura</p>
-        <h2>Não escolhemos tamanho pelo ego. Escolhemos pelo gesto.</h2>
-        <p>A mesma peça pode ficar precisa, solta ou deliberadamente ampla. O provador TALVEGUE cruza tua medida com a intenção de caimento.</p>
-        <button class="botao botao-escuro" type="button" data-open-fit>Abrir provador <span>↗</span></button>
+    <section class="estrutura" id="estrutura">
+      <div class="estrutura-topo secao" data-reveal>
+        <span>03 / Estrutura</span>
+        <h2>Um lugar para<br>entrar no ritmo.</h2>
+        <p>Sem excesso de promessa. O essencial bem feito: espaço para treino, vestiário, armários e uma rotina que começa cedo.</p>
       </div>
-      <div class="corte-diagrama" data-reveal aria-label="Diagrama de construção do casaco Talude">
-        <div class="diagrama-corpo"></div>
-        <i class="linha l1"></i><i class="linha l2"></i><i class="linha l3"></i><i class="linha l4"></i>
-        <span class="nota n1">+6 cm<br>ombro</span>
-        <span class="nota n2">64 cm<br>comprimento</span>
-        <span class="nota n3">18°<br>manga</span>
-        <span class="nota n4">volume<br>nas costas</span>
-        <b>01:12</b>
+
+      <div class="galeria">
+        <figure class="foto foto-a" data-reveal>
+          <img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Ffilename%2F6058415%2Flg_pLZg6pmVrCm6KmF90PghTCBYh-uUkycs.jpg" alt="Área de treino da Academia Saúde e Bem Estar" loading="lazy" referrerpolicy="no-referrer">
+          <figcaption>Estrutura para o treino do dia a dia.</figcaption>
+        </figure>
+        <figure class="foto foto-b" data-reveal>
+          <img src="https://assets-cdn.wellhub.com/images/?su=https%3A%2F%2Fimages.partners.gympass.com%2Fimage%2Ffilename%2F6058416%2Flg_7A_2vAjuR03Kum1ws1mtketve-2cjHQm.jpg" alt="Equipamentos da Academia Saúde e Bem Estar" loading="lazy" referrerpolicy="no-referrer">
+          <figcaption>Treino de força, constância e acompanhamento.</figcaption>
+        </figure>
+        <aside class="estrutura-dados" data-reveal>
+          <div><b>Armários</b><span>Mais praticidade durante o treino.</span></div>
+          <div><b>Vestiário</b><span>Estrutura para encaixar o treino na rotina.</span></div>
+          <div><b>Wellhub</b><span>Parceiro disponível a partir do plano Basic.</span></div>
+        </aside>
       </div>
     </section>
 
-    <section class="materia" id="materia">
-      <header class="titulo-secao" data-reveal>
-        <div><p class="micro">Matéria antes da imagem</p><h2>O tecido não serve<br>para parecer caro.</h2></div>
-        <p>Serve para aguentar repetição, responder ao corpo e envelhecer sem pedir desculpa.</p>
-      </header>
+    <section class="horarios secao" id="horarios">
+      <div class="horarios-titulo" data-reveal>
+        <span>04 / Horários</span>
+        <h2>Escolha a sua hora.<br>O treino é seu.</h2>
+      </div>
 
-      <div class="materia-experimento" data-reveal>
-        <div class="amostra" data-swatch-stage="sarja">
-          <div class="amostra-superficie"></div>
-          <div class="amostra-marcas"><i></i><i></i><i></i></div>
-          <span data-swatch-code>M–01 / SARJA 520</span>
-        </div>
-        <div class="materia-lista">
-          <button class="ativo" type="button" data-swatch="sarja"><span>01</span><strong>Sarja 520</strong><em>seca · pesada · marcada</em></button>
-          <button type="button" data-swatch="malha"><span>02</span><strong>Malha 290</strong><em>compacta · fria · estável</em></button>
-          <button type="button" data-swatch="tricoline"><span>03</span><strong>Tricoline 210</strong><em>limpa · firme · respirável</em></button>
-          <button type="button" data-swatch="forro"><span>04</span><strong>Forro 110</strong><em>leve · fosco · silencioso</em></button>
-        </div>
+      <div class="tabela-horarios" data-reveal>
+        <div class="linha-horario destaque-hoje" data-dia="1"><span>Segunda</span><b>05:00 — 11:00</b><b>15:00 — 22:00</b></div>
+        <div class="linha-horario destaque-hoje" data-dia="2"><span>Terça</span><b>05:00 — 11:00</b><b>15:00 — 22:00</b></div>
+        <div class="linha-horario destaque-hoje" data-dia="3"><span>Quarta</span><b>05:00 — 11:00</b><b>15:00 — 22:00</b></div>
+        <div class="linha-horario destaque-hoje" data-dia="4"><span>Quinta</span><b>05:00 — 11:00</b><b>15:00 — 22:00</b></div>
+        <div class="linha-horario destaque-hoje" data-dia="5"><span>Sexta</span><b>05:00 — 11:00</b><b>15:00 — 22:00</b></div>
+        <div class="linha-horario destaque-hoje" data-dia="6"><span>Sábado</span><b>07:00 — 12:00</b><b>—</b></div>
+        <div class="linha-horario destaque-hoje" data-dia="0"><span>Domingo</span><b>Fechado</b><b>—</b></div>
+      </div>
+      <p class="aviso-horario">Horários podem mudar em feriados. Confirme pelo WhatsApp antes de ir.</p>
+    </section>
+
+    <section class="cta">
+      <div class="cta-fundo" aria-hidden="true"></div>
+      <div class="cta-conteudo" data-reveal>
+        <p>Seu próximo treino pode começar com uma mensagem.</p>
+        <h2>Vai ficar para<br>segunda?</h2>
+        <a href="https://wa.me/5528999529191?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20Academia%20Sa%C3%BAde%20e%20Bem%20Estar%20e%20quero%20saber%20como%20come%C3%A7ar." target="_blank" rel="noopener">Chamar no WhatsApp <span>↗</span></a>
       </div>
     </section>
 
-    <section class="tempo" data-reveal>
-      <div class="tempo-palavra" aria-hidden="true">USO</div>
-      <div class="tempo-texto">
-        <p class="micro">Dia 1 → Dia 365</p>
-        <h2>Uma peça TALVEGUE não termina quando sai da oficina.</h2>
-        <div class="tempo-regua">
-          <span><b>01</b>fibra firme</span>
-          <span><b>30</b>primeiras dobras</span>
-          <span><b>180</b>cor mais funda nas costuras</span>
-          <span><b>365</b>peça com memória</span>
+    <section class="localizacao secao" id="localizacao">
+      <div class="localizacao-info" data-reveal>
+        <span>05 / Localização</span>
+        <h2>Perto o bastante<br>para virar hábito.</h2>
+        <address>R. Gen. Ozires de Almeida Freitas, 178<br>Vila Rica · Cachoeiro de Itapemirim — ES<br>29301-020</address>
+        <div class="localizacao-links">
+          <a href="https://www.google.com/maps/search/?api=1&query=R.%20Gen.%20Ozires%20de%20Almeida%20Freitas%2C%20178%2C%20Vila%20Rica%2C%20Cachoeiro%20de%20Itapemirim%20ES" target="_blank" rel="noopener">Abrir no mapa ↗</a>
+          <a href="https://instagram.com/academiasaudeebemestar1" target="_blank" rel="noopener">@academiasaudeebemestar1 ↗</a>
         </div>
       </div>
-    </section>
 
-    <section class="caderno" id="caderno">
-      <div class="caderno-capa" data-reveal>
-        <span>CADERNO 001</span>
-        <h2>A roupa<br>depois da foto.</h2>
-        <p>Notas sobre repetição, reparo e o estranho desejo de manter tudo parecendo novo.</p>
+      <div class="mapa-grafico" data-reveal aria-label="Representação gráfica da localização em Vila Rica">
+        <div class="mapa-linha linha-1"></div>
+        <div class="mapa-linha linha-2"></div>
+        <div class="mapa-linha linha-3"></div>
+        <div class="mapa-linha linha-4"></div>
+        <div class="mapa-pino"><span></span><b>Saúde & Bem Estar</b><small>Vila Rica</small></div>
       </div>
-      <div class="caderno-texto" data-reveal>
-        <p>A maior parte da roupa é vendida no minuto mais artificial da própria vida: recém-passada, intocada, sem corpo, sem suor, sem bolso cheio, sem joelho dobrado.</p>
-        <p>TALVEGUE parte do oposto. Desenhamos pensando na centésima vez. No tecido que já sabe onde teu cotovelo dobra. Na barra que encontrou teu passo. Na peça que não precisa ser substituída porque finalmente começou a parecer tua.</p>
-        <a href="#pecas">Voltar às peças <span>↑</span></a>
-      </div>
-    </section>
-
-    <section class="rodape-chamada" data-reveal>
-      <p>SÉRIE 01 DISPONÍVEL</p>
-      <h2>Vista por tempo suficiente<br>para deixar de ser nova.</h2>
-      <a href="#pecas">Escolher peça <span>↗</span></a>
     </section>
   </main>
 
   <footer class="rodape">
-    <div class="rodape-marca">TALVEGUE</div>
-    <div class="rodape-grid">
-      <p>Roupa de uso contínuo.<br>Desenhada e feita no Brasil.</p>
-      <div><a href="#pecas">Peças</a><a href="#corte">Corte</a><a href="#materia">Matéria</a></div>
-      <div><a href="#">Instagram</a><a href="#">Atendimento</a><a href="#">Trocas</a></div>
-      <p>© 2026 TALVEGUE<br>Série 01 / 26</p>
+    <div class="rodape-marca">Saúde <i>&</i> Bem Estar</div>
+    <div class="rodape-contato">
+      <a href="tel:+5528999529191">(28) 99952-9191</a>
+      <a href="https://instagram.com/academiasaudeebemestar1" target="_blank" rel="noopener">Instagram</a>
     </div>
+    <p>Vila Rica · Cachoeiro de Itapemirim — ES</p>
   </footer>
 
-  <div class="sacola-fundo" data-cart-backdrop></div>
-  <aside class="sacola" data-cart aria-hidden="true">
-    <header><div><span>SACOLA</span><b data-cart-count>0</b></div><button type="button" data-close-cart aria-label="Fechar sacola">×</button></header>
-    <div class="sacola-itens" data-cart-items></div>
-    <footer>
-      <div><span>Total</span><strong data-cart-total>R$ 0</strong></div>
-      <button type="button" data-checkout>Continuar para pagamento <span>↗</span></button>
-      <small>Frete calculado na próxima etapa.</small>
-    </footer>
-  </aside>
+  <a class="whatsapp-fixo" href="https://wa.me/5528999529191?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20Academia%20Sa%C3%BAde%20e%20Bem%20Estar." target="_blank" rel="noopener" aria-label="Falar com a academia no WhatsApp">
+    <span>WhatsApp</span><b>↗</b>
+  </a>
 
-  <div class="provador-fundo" data-fit-backdrop></div>
-  <section class="provador" data-fit aria-hidden="true" aria-labelledby="titulo-provador">
-    <header><p>PROVADOR / CORTE</p><button type="button" data-close-fit aria-label="Fechar provador">×</button></header>
-    <div class="provador-conteudo">
-      <div class="provador-intro"><span>01 / MEDIDA</span><h2 id="titulo-provador">Como você quer que a roupa ocupe teu corpo?</h2><p>Não usamos gênero como atalho de tamanho. Altura, tórax e intenção de caimento resolvem melhor.</p></div>
-      <div class="provador-controles">
-        <label>Altura <output data-height-output>175 cm</output><input type="range" min="150" max="205" value="175" data-height></label>
-        <label>Tórax <output data-chest-output>96 cm</output><input type="range" min="76" max="132" value="96" data-chest></label>
-        <fieldset><legend>Caimento</legend><button class="ativo" type="button" data-fit-mode="preciso">Preciso</button><button type="button" data-fit-mode="solto">Solto</button><button type="button" data-fit-mode="amplo">Amplo</button></fieldset>
-        <div class="provador-resultado"><span>RECOMENDAÇÃO</span><strong data-size-result>M</strong><p data-size-copy>Estrutura equilibrada, com espaço para uma camada leve por baixo.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="vista-rapida" data-quick-view aria-hidden="true">
-    <button type="button" data-close-quick aria-label="Fechar visualização">×</button>
-    <div class="vista-objeto"><div class="vista-silhueta" aria-hidden="true"></div></div>
-    <div class="vista-info"><span data-quick-code>TVD–001</span><h2 data-quick-name>CASACO TALUDE 01</h2><p data-quick-copy>Volume amplo, construção pesada e acabamento pensado para registrar o uso.</p><button type="button" data-quick-add>Adicionar à sacola <span>+</span></button></div>
-  </section>
-
-  <div class="aviso" data-toast role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
 </body>
 </html>
